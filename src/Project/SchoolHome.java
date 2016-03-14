@@ -69,17 +69,6 @@ public class SchoolHome {
 		System.out.println(school + "has been removed.");
 	}
 	
-	//private void viewSchool(School school, String schoolName, int rowLength, int colLength){
-		//String [][] schoolList = dBCont.getUniversities();
-		//for (int i = 0; i < rowLength; i++) {
-		 //   for (int j = 0; j < colLength; j++) {
-		  //      if (schoolList[i][j].equals(schoolName))
-		 //           printArray(schoolList, i);
-		 //   }
-		//}
-		//System.out.println(school);
-		
-	//}
 	/**
 	 * Prints a given school's information
 	 * @param schoolname Name of school to be viewed

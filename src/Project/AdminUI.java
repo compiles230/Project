@@ -93,7 +93,7 @@ public class AdminUI {
 	 */
 	public void editUser(String username, String firstName, String lastName, String password,
 							char type, char status){
-		accCont.editUser(username, firstName, lastName, password, type, status)
+		accCont.editUser(username, firstName, lastName, password, type, status);
 		
 		
 	}
@@ -103,16 +103,21 @@ public class AdminUI {
 	 * @param username Name of user to be deactivated
 	 */
 	public void deactivateUser(String username){
-		accCont.deactivateUsers();
+		boolean deactivate = accCont.deactivateUser(username);
+		if (deactivate){
+			System.out.println(username + " has been deactivated");
+		}
+		else
+			System.out.println("Deactivation unsuccessfull");
 		
 	}
 	
 	/**
 	 * Admin selects to add a user
 	 */
-	public void addUser(String first, String last, String username, String password
-						char type, char status){
-		accCont.; 
+	public void addUser(String first, String last, String username, String password,
+						char type){
+		accCont.addUser(username, first, last, password, type);
 		
 		
 	}
@@ -142,8 +147,14 @@ public class AdminUI {
 		
 	}
 	
-	public boolean LogOn(String username, String password){
-		accCont.logOn();
+	public void LogOn(String username, String password){
+		
+		boolean logOn = accCont.logOn(username, password);
+		if (logOn){
+			System.out.println("Log on successful");
+		}
+		else
+			System.out.println("Log on unsuccessful, try again");
 	}
 	
 }

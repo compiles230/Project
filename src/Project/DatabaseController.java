@@ -169,6 +169,20 @@ public class DatabaseController {
     	int passed = database.user_editUser(firstName, lastName, username, password, type, status);
     	return passed;
     }
+	
+	/**
+	 * Prints a 2D array of all the users in the database
+	 */
+	public void getUsers(){
+		String[][] users = database.user_getUsers();
+		for (int i = 0; i < users.length; i++){
+			for (int j = 0; j < users[i].length; j++)
+			{
+				System.out.println(users[i][j]);
+			}
+			System.out.println();
+		}
+	}
     
     /**
      * 
@@ -244,6 +258,17 @@ public class DatabaseController {
 			System.out.println("Edit operation failed");
 	        
 	    }
+	
+	public void addUser(String firstName, String lastName, String username,
+				String password, char type){
+		int passed = database.user_addUser(firstName, lastName, username, password, type);
+		if (passed != -1){
+			System.out.println("User added");
+		}
+		else
+			System.out.println("User not added");
+		
+	}
 	 
 	 /**
 	  * Prints out the information of the given school if found
