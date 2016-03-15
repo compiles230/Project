@@ -27,7 +27,12 @@ public class AdminUI {
 	 * Instance of AccountController
 	 */
 	private AccountController accCont;
-
+	
+	/**
+	 * Instance of SchoolHome
+	 */
+	private SchoolHome sch;
+	
 	
 	/**
 	 * Default constructor for AdminUI
@@ -43,9 +48,11 @@ public class AdminUI {
 	 * @param adminCont given AdminController
 	 * @param accCont given AccountController
 	 */
-	public AdminUI(AdminController adminCont, AccountController accCont) {
+	public AdminUI(AdminController adminCont, AccountController accCont, SchoolHome sch, Admin ad) {
 		this.adminCont = adminCont;
 		this.accCont = accCont;
+		this.sch = sch;
+		this.admin = ad;
 	}
 
 	/**
@@ -73,6 +80,7 @@ public class AdminUI {
 			  int academicsScale, int socialScale, int qualityOfLifeScale){
 
 	}
+	
 	
 	/**
 	 * Admin selects to view users
@@ -112,9 +120,14 @@ public class AdminUI {
 		
 	}
 	
-	/**
-	 * Admin selects to add a user
-	 */
+/**
+ * Admin creates a new user to be added to the database, with the given attributes
+ * @param first First name of user
+ * @param last Last name of user
+ * @param username Username of user
+ * @param password password of user
+ * @param type type of user (admin or user)
+ */
 	public void addUser(String first, String last, String username, String password,
 						char type){
 		accCont.addUser(username, first, last, password, type);
@@ -123,38 +136,97 @@ public class AdminUI {
 	}
 	
 	/**
-	 * Admin selects to create a school with the given parameters
+	 * Admin creates a school with the given attributes
+	 * @param schoolname
+	 * @param state
+	 * @param location
+	 * @param control
+	 * @param numberOfStudents
+	 * @param percentFemale
+	 * @param SATVerbal
+	 * @param SATMath
+	 * @param expenses
+	 * @param percentFinancialAid
+	 * @param numOfApplicants
+	 * @param percentAdmitted
+	 * @param percentEnrolled
+	 * @param academicScale
+	 * @param socialScale
+	 * @param qualityOfLifeScale
+	 * @param emphases
 	 */
-	public School createSchool(String schoolname, String state, String location,
+	public void createSchool(String schoolname, String state, String location,
 			String control, int numberOfStudents, double percentFemale,
-							double SATVerbal, double SATMath, double exepenses,
+							double SATVerbal, double SATMath, double expenses,
 							double percentFinancialAid, int numOfApplicants,
 							double percentAdmitted, double percentEnrolled,
 							int academicScale, int socialScale, int qualityOfLifeScale,
 							String emphases){
-		return null;
+		sch.addUniversity(schoolname, state, location, control, numberOfStudents, percentFemale,
+						SATVerbal, SATMath, expenses, percentFinancialAid, numOfApplicants, percentAdmitted,
+						percentEnrolled, academicScale, socialScale, qualityOfLifeScale);
 		//
 	}
 	
-	public void confirmDeactivateUser(String confirm){
+	public boolean confirmDeactivateUser(String confirm){
+		if (confirm.equals("y")){
+			return true;
+		}
+		else
+			return false;
+
+	}
+	
+	public boolean confirmCancelEditUni(String confirm){
+		if (confirm.equals("y")){
+			return true;
+		}
+		else
+			return false;
+		
+	}
+	public boolean confirmCancelEditUser(String confirm){
+		if (confirm.equals("y")){
+			return true;
+		}
+		else
+			return false;
 		
 	}
 	
-	public void confirmCancelEditUni(String confirm){
-		
-	}
-	public void confirmCancelEditUser(String confirm){
-		
-	}
-	
+	/**
+	 * Admin log on function
+	 * @param username username of admin
+	 * @param password password of admin
+	 */
 	public void LogOn(String username, String password){
 		
 		boolean logOn = accCont.logOn(username, password);
 		if (logOn){
+			admin.logOn();
 			System.out.println("Log on successful");
 		}
 		else
 			System.out.println("Log on unsuccessful, try again");
+	}
+	
+	public void LogOut(){
+		boolean logOut = accCont.logOut((Account)admin);
+		if (logOut){
+			System.out.println(this.admin.getUsername() + " has logged out");
+		}
+		else
+			System.out.println("Log out failed");
+		
+	}
+	
+	/**
+	 * Prints the information of the given school
+	 * @param schoolname name of the school to be viewed.
+	 */
+	public void viewSchool(String schoolname){
+		sch.viewSchool(schoolname);
+	
 	}
 	
 }

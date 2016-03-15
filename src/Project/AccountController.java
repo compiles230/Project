@@ -12,6 +12,7 @@ public class AccountController {
 	
 	private User user;
 	private Admin admin;
+	private Account account;
 	/**
 	 * Variable of DatabaseController
 	 */
@@ -59,14 +60,14 @@ public class AccountController {
 		dbc.addUser(firstName, lastName, username, password, type);
 	}
 	
-	public User verifyUser(String username, String password){
-		User user = dbc.getSpecificUser(username);
+	public Account verifyUser(String username, String password){
+		Account user = (Account) dbc.getSpecificUser(username);
 		return user;
 		
 	}
 	
 	public boolean logOn(String username, String password){
-		User user = verifyUser(username, password);
+		Account user = verifyUser(username, password);
 		boolean logOn = false;
 		if (user != null){
 			if (password.equals(user.getPassword())){
@@ -81,11 +82,24 @@ public class AccountController {
 			logOn = false;
 		return logOn;
 	}
+	
+	public boolean logOut(Account account){
+		boolean logOff = false;
+		System.out.println(account.isLoggedOn());
+		if (account.isLoggedOn() == true){
+			
+			account.logOff();
+			logOff = true;
+		}
+		
+		return logOff;
+	}
 
 	public boolean deactivateUser(String username) {
-		user = dbc.getSpecificUser(username);
-		if (user != null){
-			user.setStatus('N');
+		this.account = dbc.getSpecificUser(username);
+		if (account != null){
+			dbc.editUser(username, account.getFirstName(), account.getLastName(), account.getPassword(),
+					account.getType(), 'N');
 			return true;
 		}
 		else{

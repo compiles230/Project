@@ -1,6 +1,6 @@
 package Project;
 /**
- * RegUserController.java
+ * UserController.java
  */
 
 import java.util.*;
@@ -15,62 +15,62 @@ import java.io.*;
  */
 public class UserController {
 
-	private User regUser;
-	private static DatabaseController DatabaseController;
-	//private University university;
+	private User user;
+	private DatabaseController dBController;
+	private School school;
 	private static boolean loggedIn=false;
 	
+	
 	/**
 	 * 
 	 */
-	public void RegUserController() {
-		// TODO Auto-generated constructor stub
+	public UserController(){
+		School school = null;
+		User user = null;
+		DatabaseController dBContoller = null;
 	}
 	
 	/**
 	 * 
+	 * @param dBController
 	 */
-	public void search(){
-	
+	public UserController(DatabaseController dBController) {
+		this.dBController = dBController;
 	}
 	
 	/**
 	 * 
-	 * @return
+	 * @param username
+	 * @param password
 	 */
-	public String results(){
-		return null;
-	}
-
-	/**
-	 * 
-	 */
-	public void addSchool(){
-	}
+	
 	
 	/**
-	 * 
+	 * Takes the username of a regular user and returns a Array List of their saved schools.
+	 * @param username
+	 * @return Returns an Array List of all the saved schools given a user's username.
 	 */
-	public void removeSchool(String username, School school){
-	}  
-	
-	/**
-	 * Takes the id of a regular user and returns a Array List of their saved schools.
-	 * @param id
-	 * @return Returns a Array List of all the saved schools given a user's id.
-	 */
-	public static ArrayList<String> getSavedSchools(int id){
-		TreeMap<Integer, ArrayList<String>> savedSchools = DatabaseController.getSavedSchools();
-        ArrayList<String> userSchools = savedSchools.get(id);
+	public ArrayList<String> getSavedSchools(String username){
+		TreeMap<Integer, ArrayList<String>> savedSchools = dBController.getSavedSchools();
+        ArrayList<String> userSchools = savedSchools.get(username);
         return userSchools; 
 	}
-	   
+	
 	/**
-	 * @param args
+	 * Allows user to edit and update his/her profile information
+	 * @param username
+	 * @param password
 	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public void editProfile(String username, String firstName, String lastName, String password){
+		dBController.user_editUserInfo(username, firstName, lastName, password);
+	}
+	
+	/**
+	 * Allows user to remove school from saved schools list
+	 * @param school
+	 */
+	public void removeSchool(String username, String school){
+		dBController.removeSchool(username, school);
 	}
 
 }

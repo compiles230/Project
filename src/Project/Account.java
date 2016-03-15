@@ -27,7 +27,7 @@ public class Account {
 		this.username = null;
 		this.password = null;
 		this.type = 'n';
-		this.status = 'n';
+		this.status = 'Y';
 		this.loggedOn = false;
 	}
 
@@ -48,6 +48,7 @@ public class Account {
 		this.password = password;
 		this.type = type;
 		this.status = status;
+		this.setStatus('Y');
 		this.loggedOn = false;
 		
 	}

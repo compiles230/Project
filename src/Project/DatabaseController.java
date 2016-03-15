@@ -38,9 +38,7 @@ public class DatabaseController {
 	
 	}
 	 
-	/**
-	 * getUniversities()
-	 */
+
 	/**
 	 * 
 	 * @param school
@@ -68,10 +66,6 @@ public class DatabaseController {
 		int passed = database.university_addUniversity(school, state, location,control, numberOfStudents,
 				percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, numberOfApplicants,
 				percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
-        if (passed == -1){
-        	System.out.println("Add operation failed");
-        }
-        System.out.println("Add operation successful");
 
     }
 	
@@ -157,13 +151,13 @@ public class DatabaseController {
      */
 	public int deactivateUser(String username) 
     {
-    	User user = getSpecificUser(username);
-    	String name = user.getUsername();
-    	String firstName = user.getFirstName();
-    	String lastName = user.getLastName();
-    	String password = user.getPassword();
-    	char type = user.getType();
-    	char status = user.getStatus();
+    	Account acc = (Account) getSpecificUser(username);
+    	String name = acc.getUsername();
+    	String firstName = acc.getFirstName();
+    	String lastName = acc.getLastName();
+    	String password = acc.getPassword();
+    	char type = acc.getType();
+    	char status = acc.getStatus();
     	
     	
     	int passed = database.user_editUser(firstName, lastName, username, password, type, status);
@@ -189,24 +183,26 @@ public class DatabaseController {
      * @param username
      * @return
      */
-	public User getSpecificUser(String username) {
-		User user = null;
+	public Account getSpecificUser(String username) {
+		Account acc = new Account();
         String[][] users = database.user_getUsers();
         for (int i = 0; i < users.length; i++) {
 		    for (int j = 0; j < users[i].length; j++) {
 		        if (users[i][j].equals(username)){
-		        	user.setUsername(users[i][j]);
-		        	user.setFirstName(users[i][j-2]);
-		        	user.setLastName(users[i][j-1]);
-		        	user.setPassword(users[i][j+1]);
+		        	//System.out.println(users[i][j] + "\n" + users[i][j-1] +" " + users[i][j-2] + " " + users[i][j+1] + " " +users[i][j+2]);
+		        	acc.setUsername(users[i][j]);
+		        	//System.out.println(user.getUsername());
+		        	acc.setFirstName(users[i][j-2]);
+		        	acc.setLastName(users[i][j-1]);
+		        	acc.setPassword(users[i][j+1]);
 		        	String type = users[i][j+2];
 		        	String status = users[i][j+3];
-		        	user.setType(type.charAt(0));
-		        	user.setStatus(status.charAt(0));
+		        	acc.setType(type.charAt(0));
+		        	acc.setStatus(status.charAt(0));
 		        }
 		    }
 		}
-        return user;
+        return acc;
      
     }
 	 
@@ -229,11 +225,11 @@ public class DatabaseController {
 	  * @param status
 	  * @return -1 if operation failed
 	  */
-	public int editUser(String username, String firstName, String lastName,
+	public void editUser(String username, String firstName, String lastName,
 			 					String password, char type, char status) {
 	        int passed = database.user_editUser(username, firstName, lastName, password,
 	        									type, status);
-	        return passed;
+	        
 	    }
 	 
 	 /**
@@ -246,7 +242,7 @@ public class DatabaseController {
 	  * @param status
 	  */
 	public void user_editUserInfo(String username, String firstName, String lastName, String password) {
-		User user = getSpecificUser(username);
+		Account user = (Account) getSpecificUser(username);
 		if (user != null){
 			user.setFirstName(firstName);
 			user.setLastName(lastName);
@@ -261,13 +257,18 @@ public class DatabaseController {
 	
 	public void addUser(String firstName, String lastName, String username,
 				String password, char type){
+		Account acc = getSpecificUser(username);
+		if(acc != null){
+			System.out.println("User " + username + " already exists");
+		}
+		else{
 		int passed = database.user_addUser(firstName, lastName, username, password, type);
-		if (passed != -1){
-			System.out.println("User added");
+		if (passed == -1){
+			System.out.println("User not added");
 		}
 		else
-			System.out.println("User not added");
-		
+			System.out.println("User added");
+		}
 	}
 	 
 	 /**
@@ -278,7 +279,7 @@ public class DatabaseController {
 	public void viewSchool(String school){
 		 boolean found = false;
 		 String[][] schools = database.university_getUniversities();
-			for (int i = 0; i < schools.length; i++) {
+			for (int i = 0; i < schools.length - 1; i++) {
 			    for (int j = 0; j < schools[i].length; j++) {
 			        if (schools[i][j].equals(school)){
 			        	found = true;
@@ -292,7 +293,7 @@ public class DatabaseController {
 	 }
 	 
 	public void printArray(String[][] array, int row) {
-		    for(int i = 0; i < array.length; i++)
+		    for(int i = 0; i < array[row].length; i++)
 		        System.out.println(array[row][i] + " ");
 		}
 	 

@@ -68,6 +68,7 @@ public class SchoolHome {
 		dBCont.removeSchool(username, school);
 		System.out.println(school + "has been removed.");
 	}
+
 	
 	/**
 	 * Prints a given school's information
@@ -81,19 +82,6 @@ public class SchoolHome {
 	    for(int i = 0; i < array.length; i++)
 	        System.out.println(array[row][i] + " ");
 	}
-	    
-	//public void editUniversity(School school, int rowLength, int colLength){
-		// String [][] schoolList = dBCont.getUniversities();
-		// for (int i = 0; i < rowLength; i++) {
-		//    for (int j = 0; j < colLength; j++) {
-		//        if (schoolList[i][j].equals(schoolName))
-		 //           printArray(schoolList, i);
-		   // }
-	//	}
-		// System.out.println(school);
-
-	//}
-	
 	/**
 	 * Adds a university to the DBLibrary's list of schools
 	 * @param schoolName
