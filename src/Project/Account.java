@@ -172,5 +172,14 @@ public class Account {
 		this.status = status;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Account [firstName=" + firstName + ", lastName=" + lastName + ", username=" + username + ", password="
+				+ password + ", type=" + type + ", status=" + status + ", loggedOn=" + loggedOn + "]";
+	}
+
 
 }

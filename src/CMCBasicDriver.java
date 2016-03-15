@@ -23,8 +23,6 @@ public class CMCBasicDriver {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		CMCBasicDriver driver = new CMCBasicDriver();
-		try{
-		PrintWriter pw = new PrintWriter("DRIVER_OUTPUT.csv");
 		UniversityDBLibrary db = new UniversityDBLibrary("andyetitco","andyetitco","ehk3");
 		DatabaseController dbc = new DatabaseController(db);
 		SchoolHome sh = new SchoolHome(dbc);
@@ -34,15 +32,12 @@ public class CMCBasicDriver {
 		UserController uc = new UserController(dbc);
 		AdminController adc = new AdminController(acc, sh, dbc);
 		AdminUI adminUI = new AdminUI(adc,acc, sh, admin);
-		UserUI userUI = new UserUI(acc, userCont, sch, user);
+		UserUI userUI = new UserUI(acc, uc, sh, user);
 		
 		System.out.println("******************************* ADMIN FUNCTIONS *******************************");
 		System.out.println("USE CASE 1: LOG ON ADMIN *******************************");
 		adminUI.LogOn("nadmin","admin");
 		
-		pw.println("******************************* ADMIN FUNCTIONS *******************************");
-		pw.println("USE CASE 1: LOG ON ADMIN *******************************");
-		adminUI.LogOn("nadmin","admin");
 		
 		System.out.println("\n\n******************************* USE CASE 6: VIEW SCHOOL (ADELPHI) *******************************\n\n");
 		adminUI.viewSchool("ADELPHI");
@@ -56,10 +51,7 @@ public class CMCBasicDriver {
 		adminUI.viewSchool("DEMO UNIVERSITY");
 		adminUI.editUniversity("DEMO UNIVERSITY","x","x","x",1,1.1,1.2,1.3,1.4,1.5,1,1.6,1.7,1,1,1);
 		
-		
-		//adminUI.editUniversity("ADELPHI","NEW YORK","-1","PRIVATE",15000,(double)70,(double)500,(double)475,(double)37437,(double)60,5500,(double)70,(double)40,2,2,2);
-		
-		
+
 		
 		System.out.println("\n\n******************************* USE CASE 12: EDIT USER (luser,Lynn,User,user,a,Y)  *******************************\n\n");
 		adminUI.editUser("luser","Lynn","UserXX","user",'a','Y');
@@ -74,24 +66,41 @@ public class CMCBasicDriver {
 		adminUI.addUser("Kenzie", "F", "kflick", "1234", 'u');
 		adminUI.viewUsers();
 		
-		System.out.println("\n\n******************************* USE CASE 15: LOG OUT )  *******************************\n\n");
+		System.out.println("\n\n******************************* USE CASE 15: LOG OUT  *******************************\n\n");
 		adminUI.LogOut();
 		
-		System.out.println("******************************* USER FUNCTIONS *******************************");
-		System.out.println("USE CASE 1: LOG ON USER *******************************");
-		adminUI.LogOn("juser","user");
+		System.out.println("\n\n******************************* USER FUNCTIONS *******************************");
+		System.out.println("\n\n******************************* USE CASE 1: LOG ON USER *******************************");
+		userUI.LogOn("juser","user");
 		
-		System.out.println("******************************* USE CASE 8: VIEW PROFILE *******************************");
+		System.out.println("\n\n******************************* USE CASE 8: VIEW PROFILE *******************************");
+		userUI.viewProfile();
 		
-		pw.close();
-		}
+		System.out.println("\n\n******************************* USE CASE 5: SAVE SCHOOL (juser AUBURN)*******************************");
+		userUI.saveSchool("AUBURN");
+		userUI.saveSchool("BARD");
+		
+		
+		userUI.viewSavedSchools();
+		
+		System.out.println("\n\n******************************* VIEW ALL SCHOOLS *******************************");
+		userUI.viewAllSchools();
+		
+		System.out.println("\n\n******************************* USE CASE 7: REMOVE SCHOOL (juser AUBURN)*******************************");
+		userUI.removeSchool("AUBURN");
+		userUI.removeSchool("BARD");
+		userUI.viewSavedSchools();
+		
+		System.out.println("\n\n******************************* USE CASE 9: EDIT PROFILE (juser, EDITED, EDITED, user)*******************************");
+		userUI.editProfile("juser", "EDITED", "EDITED", "user");
+		userUI.viewProfile();
+		userUI.editProfile("juser", "John", "User", "user");
+		System.out.println("\n\n******************************* USE CASE 15: LOG OUT  *******************************\n\n");
+		userUI.logOut();
+		
 
-	catch(FileNotFoundException fnfe){
-	fnfe.printStackTrace();
-	}
-	finally{
 	System.out.println("...COMPLETE...");
-	}
+
 		
 	}
 		

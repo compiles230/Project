@@ -46,7 +46,8 @@ public class UserUI {
 	public void LogOn(String username, String password){
 		
 		boolean logOn = accCont.logOn(username, password);
-		if (logOn){
+		if (logOn == true){
+			user.logOn();
 			System.out.println("Log on successful");
 		}
 		else
@@ -59,8 +60,8 @@ public class UserUI {
 	 * @param username
 	 * @param password
 	 */
-	public void editProfile(String username, String password){
-		userCont.editProfile(username, password);
+	public void editProfile(String username, String firstName, String lastName, String password){
+		userCont.editProfile(user, username, firstName, lastName, password);
 	}
 	
 	/**
@@ -77,11 +78,12 @@ public class UserUI {
 	public void logOut(){
 		
 		boolean logOut = accCont.logOut(user);
-		if (logOn){
-			System.out.println("Log on successful");
+		if (logOut){
+			user.logOff();
+			System.out.println("Log out successful");
 		}
 		else
-			System.out.println("Log on unsuccessful, try again");
+			System.out.println("Log out unsuccessful, try again");
 		
 	}
 	
@@ -121,40 +123,41 @@ public class UserUI {
 	}
 	
 	/**
-	 * 
+	 * Method that will print a list of all the schools in the database
 	 */
 	public void viewAllSchools(){
-		
+		schoolHome.viewAllSchools();
 	}
 	
 	/**
-	 * 
-	 * @param schoolname
+	 * Views a specific school
+	 * @param schoolname name of school to be viewed
 	 */
 	public void viewSchool(String schoolname){
 		schoolHome.viewSchool(schoolname);
 	}
 	
 	/**
-	 * 
-	 * @param school
+	 * View user's list of saved schools
+	 */
+	public void viewSavedSchools(){
+		schoolHome.viewSavedSchools(user.getUsername());
+	}
+	
+	/**
+	 * User selects to save a school to their saved school list
+	 * @param school name of the school to be saved
 	 */
 	public void saveSchool(String school){
 		String username = user.getUsername();
 		schoolHome.saveSchool(username, school);
 	}
 	
-	/**
-	 * 
-	 */
-	public void getSavedSchool(){
-		String username = user.getUsername();
-		userCont.getSavedSchools(username);
-	}
+
 	
 	/**
-	 * 
-	 * @param school
+	 * User selects to remove school from their saved school list
+	 * @param school name of school to be removed
 	 */
 	public void removeSchool(String school){
 		String username = user.getUsername();

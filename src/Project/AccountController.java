@@ -67,7 +67,7 @@ public class AccountController {
 	}
 	
 	public boolean logOn(String username, String password){
-		Account user = verifyUser(username, password);
+		Account user = (Account) verifyUser(username, password);
 		boolean logOn = false;
 		if (user != null){
 			if (password.equals(user.getPassword())){
@@ -85,9 +85,7 @@ public class AccountController {
 	
 	public boolean logOut(Account account){
 		boolean logOff = false;
-		System.out.println(account.isLoggedOn());
-		if (account.isLoggedOn() == true){
-			
+		if (account.isLoggedOn() == true){	
 			account.logOff();
 			logOff = true;
 		}

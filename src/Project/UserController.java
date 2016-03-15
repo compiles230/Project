@@ -46,23 +46,12 @@ public class UserController {
 	
 	
 	/**
-	 * Takes the username of a regular user and returns a Array List of their saved schools.
-	 * @param username
-	 * @return Returns an Array List of all the saved schools given a user's username.
-	 */
-	public ArrayList<String> getSavedSchools(String username){
-		TreeMap<Integer, ArrayList<String>> savedSchools = dBController.getSavedSchools();
-        ArrayList<String> userSchools = savedSchools.get(username);
-        return userSchools; 
-	}
-	
-	/**
 	 * Allows user to edit and update his/her profile information
 	 * @param username
 	 * @param password
 	 */
-	public void editProfile(String username, String firstName, String lastName, String password){
-		dBController.user_editUserInfo(username, firstName, lastName, password);
+	public void editProfile(User user, String username, String firstName, String lastName, String password){
+		dBController.user_editUserInfo(user, username, firstName, lastName, password);
 	}
 	
 	/**

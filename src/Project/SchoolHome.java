@@ -59,6 +59,10 @@ public class SchoolHome {
 		return null;
 	}
 	
+	public void saveSchool(String username, String school){
+		dBCont.addSchool(username, school);
+	}
+	
 	/**
 	 * Method removes given school from a given user's list of saved schools
 	 * @param username Username of user who wishes to remove the school
@@ -66,7 +70,6 @@ public class SchoolHome {
 	 */
 	public void removeSchool(String username, String school){
 		dBCont.removeSchool(username, school);
-		System.out.println(school + "has been removed.");
 	}
 
 	
@@ -76,6 +79,14 @@ public class SchoolHome {
 	 */
 	public void viewSchool(String schoolname){
 		dBCont.viewSchool(schoolname);
+	}
+	
+	/**
+	 * View a given user's list of saved schools
+	 * @param username name of user
+	 */
+	public void viewSavedSchools(String username){
+		dBCont.viewSavedSchools(username);
 	}
 	
 	public void printArray(String[][] array, int row) {
@@ -144,6 +155,13 @@ public class SchoolHome {
 		 return false;
 	 else
 		 return true;
+	}
+	
+	/**
+	 * Method that prints out all of the schools in the database
+	 */
+	public void viewAllSchools(){
+		dBCont.viewAllSchools();
 	}
 	
 }

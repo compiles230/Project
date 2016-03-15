@@ -40,7 +40,7 @@ public class DatabaseController {
 	 
 
 	/**
-	 * 
+	 * Adds a new university to the database with the given parameters
 	 * @param school
 	 * @param state
 	 * @param location
@@ -87,7 +87,7 @@ public class DatabaseController {
     }
 	
     /**
-	 * 
+	 * Changes fields of a given university to the given parameters
 	 * @param school
 	 * @param state
 	 * @param location
@@ -117,31 +117,17 @@ public class DatabaseController {
 		 
 	 }
     
-    /**
-     * has the database save the specified school to
-     * the user's list of saved schools. Nothing happens if an invalid user Id
-     * is specified or if the specified school is already in user's list of
-     * saved schools
-     *
-     * @param Id 
-     * @param school a String containing the school to be saved to the user's
-     * list of saved schools
-     * @return true if the specified school was successfully added to the user's
-     * list of saved schools or false otherwise
-     * @return true
-     */
-	public boolean addSchool(int id, String school) {
-            boolean chooser = true;
-            TreeMap<Integer, ArrayList<String>> list1 = getSavedSchools();
-            ArrayList<String> savedSchools1 = list1.get(id);
-            if(savedSchools1 != null){
-            for (int j = 0; j < savedSchools1.size(); j++) {
-                if (savedSchools1.get(j).equals(school)) {
-                    chooser = false;
-                } 
+	/**
+	 * has the database save the specified school to
+     * the user's list of saved schools
+	 * @param username name of the user
+	 * @param school name of the school to be saved
+	 */
+	public void addSchool(String username, String school) {
+           int passed = database.user_saveSchool(username, school);
+            if (passed == -1){
+            	System.out.println("FAILED");
             }
-          }
-			return chooser;
        }
     
     
@@ -172,16 +158,17 @@ public class DatabaseController {
 		for (int i = 0; i < users.length; i++){
 			for (int j = 0; j < users[i].length; j++)
 			{
-				System.out.println(users[i][j]);
+				System.out.print(users[i][j] + ", ");
 			}
 			System.out.println();
 		}
 	}
     
     /**
-     * 
+     * Returns a user from the database with the given username
      * @param username
-     * @return
+     * @return null if there is no user
+     * @return Account type if a user has been found with matching username
      */
 	public Account getSpecificUser(String username) {
 		Account acc = new Account();
@@ -241,20 +228,29 @@ public class DatabaseController {
 	  * @param type
 	  * @param status
 	  */
-	public void user_editUserInfo(String username, String firstName, String lastName, String password) {
-		Account user = (Account) getSpecificUser(username);
+	public void user_editUserInfo(User user, String username, String firstName, String lastName, String password) {
+		//Account user = (Account) getSpecificUser(username);
+		User currUser = user;
 		if (user != null){
 			user.setFirstName(firstName);
 			user.setLastName(lastName);
 			user.setUsername(username);
 			user.setPassword(password);
-			System.out.println("User information updated");
+			System.out.println("\nUser information updated");
 		}
 		else
 			System.out.println("Edit operation failed");
 	        
 	    }
 	
+	/**
+	 * Adds a user to the database with the given attributes
+	 * @param firstName First name of the user
+	 * @param lastName last name of the user
+	 * @param username username of the user
+	 * @param password password of the user
+	 * @param type type of the user
+	 */
 	public void addUser(String firstName, String lastName, String username,
 				String password, char type){
 		Account acc = getSpecificUser(username);
@@ -294,32 +290,32 @@ public class DatabaseController {
 	 
 	public void printArray(String[][] array, int row) {
 		    for(int i = 0; i < array[row].length; i++)
-		        System.out.println(array[row][i] + " ");
+		        System.out.print(array[row][i] + " || ");
 		}
 	 
-	 /**
-	  * 
-	  * @return
-	  */
-	public TreeMap<Integer, ArrayList<String>> getSavedSchools() {
-	        TreeMap<Integer, ArrayList<String>> savedSchoolMap = new TreeMap();
-	        ArrayList<String> valueMap = new ArrayList<String>();
-	        String[][] temp = null;
-	        int temp2 = new Integer(temp[0][0]); //gets the ID of the first entry
-	        for (int i = 0; i < temp.length; i++) {
-
-	            if (temp2 != new Integer(temp[i][0])) { //compares the next ID with the previous one
-	                valueMap = new ArrayList<String>(); //clears the ArrayList if new person
-	            }
-
-	            temp2 = new Integer(temp[i][0]);
-	            for (int j = 0; j < temp[i].length; j = j + 2) {
-	                valueMap.add(temp[i][j + 1]);
-	                savedSchoolMap.put(new Integer(temp[i][j]), valueMap);
-	            }
-	        }
-	        return savedSchoolMap;
-	 }
+	/**
+	 * Prints user's current saved schools
+	 * @param username username of the user
+	 */
+	public void viewSavedSchools(String username){
+		boolean found = false;
+		String[][] usersSavedSchools = database.user_getUsernamesWithSavedSchools();
+		for (int i = 0; i < usersSavedSchools.length - 1; i++) {
+		    for (int j = 0; j < usersSavedSchools[i].length; j++) {
+		    		if (usersSavedSchools[i][j].equals(username))
+		    		{
+		    			found = true;
+		    			printArray(usersSavedSchools, i);
+		    		}
+		    	}
+		    
+		    }
+		if (found != true){
+			System.out.println("Nothing to display");
+		}
+		
+		
+	}
 	 
 	 
 	 /**
@@ -333,8 +329,21 @@ public class DatabaseController {
 			System.out.println("Remove school operation failed");
 		}
 		else
-		System.out.println(school + "removed from " + username +"'s list");
+		System.out.println(school + " removed from " + username +"'s list");
 	      
 	    }
+	
+	/**
+	 * Prints all the schools in the database library
+	 */
+	public void viewAllSchools(){
+		String[][] unis = database.university_getUniversities();
+		for (int i = 0; i < unis.length - 1; i++) {
+		    for (int j = 0; j < unis[i].length; j++) {
+		    		System.out.print(unis[i][j] + ", ");
+		    	}
+		    System.out.println();
+		    }
+	}
 	 
 }
