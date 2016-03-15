@@ -1,7 +1,7 @@
 package Project;
 
 /**
- * 
+ * AdminController.java
  */
 
 /**
@@ -32,8 +32,6 @@ public class AdminController {
 	 * Default constructor for AdminController
 	 */
 	public AdminController() {
-		// TODO Auto-generated constructor stub
-		//These might actually be null not instantiated
 		AccountController accCont = null;
 		SchoolHome schHome = null;
 		DatabaseController DBCont = new DatabaseController();
@@ -54,6 +52,27 @@ public class AdminController {
 		this.DBCont = dBCont;
 	}
 	
+	
+	/**
+	 * Edits a the fields of a given university
+	 * @param schoolName
+	 * @param state
+	 * @param location
+	 * @param control
+	 * @param numberOfStudents
+	 * @param percentFemales
+	 * @param SATVerbal
+	 * @param SATMath
+	 * @param expenses
+	 * @param percentFinancialAid
+	 * @param numberOfApplicants
+	 * @param percentAdmitted
+	 * @param percentEnrolled
+	 * @param academicsScale
+	 * @param socialScale
+	 * @param qualityOfLifeScale
+	 * @return
+	 */
 	public boolean editUniversity(String schoolName, String state, String location,
 			  String control, int numberOfStudents, double percentFemales,
 			  double SATVerbal, double SATMath, double expenses, double percentFinancialAid,
@@ -68,6 +87,25 @@ public class AdminController {
 		
 	}
 	
+	/**
+	 * Adds a university to the database
+	 * @param schoolName
+	 * @param state
+	 * @param location
+	 * @param control
+	 * @param numberOfStudents
+	 * @param percentFemales
+	 * @param SATVerbal
+	 * @param SATMath
+	 * @param expenses
+	 * @param percentFinancialAid
+	 * @param numberOfApplicants
+	 * @param percentAdmitted
+	 * @param percentEnrolled
+	 * @param academicsScale
+	 * @param socialScale
+	 * @param qualityOfLifeScale
+	 */
 	public void addUniversity(String schoolName, String state, String location,
 			  String control, int numberOfStudents, double percentFemales,
 			  double SATVerbal, double SATMath, double expenses, double percentFinancialAid,

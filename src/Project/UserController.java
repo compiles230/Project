@@ -14,15 +14,19 @@ import java.io.*;
  * @version 1.0 3/4/16
  */
 public class UserController {
-
-	private User user;
-	private DatabaseController dBController;
-	private School school;
-	private static boolean loggedIn=false;
-	
 	
 	/**
-	 * 
+	 * instance of User
+	 */
+	private User user;
+	
+	/**
+	 * Instance of DatabaseController
+	 */
+	private DatabaseController dBController;
+
+	/**
+	 * Deafult Constructor
 	 */
 	public UserController(){
 		School school = null;
@@ -37,12 +41,6 @@ public class UserController {
 	public UserController(DatabaseController dBController) {
 		this.dBController = dBController;
 	}
-	
-	/**
-	 * 
-	 * @param username
-	 * @param password
-	 */
 	
 	
 	/**

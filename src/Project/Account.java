@@ -1,3 +1,6 @@
+/**
+ * Account.java
+ */
 package Project;
 
 /**
@@ -8,12 +11,36 @@ package Project;
  */
 public class Account {
 	
+	/**
+	 * Name of the admin
+	 */
 	private String firstName;
+	/**
+	 * Last name of the admin
+	 */
 	private String lastName;
+	/**
+	 * Admin's username
+	 */
 	private String username;
+	
+	/**
+	 * Admin's password
+	 */
 	private String password;
+	/**
+	 * Admin's type (should be 'a')
+	 */
 	private char type;
+	
+	/**
+	 * Admin's status, deactivated or active ('N' || 'Y')
+	 */
 	private char status;
+	
+	/**
+	 * Determines if Admin is logged on or not
+	 */
 	private boolean	loggedOn;
 	
 
@@ -57,6 +84,7 @@ public class Account {
 
 
 	/**
+	 * Checks if admin is logged on
 	 * @return the loggedOn
 	 */
 	public boolean isLoggedOn() {
@@ -71,6 +99,7 @@ public class Account {
 	}
 	
 	/**
+	 * 
 	 * Sets loggedOn to false
 	 */
 	public void logOff(){
@@ -78,6 +107,7 @@ public class Account {
 	}
 
 	/**
+	 * returns of the first name of the admin
 	 * @return the firstName
 	 */
 	public String getFirstName() {
@@ -86,6 +116,7 @@ public class Account {
 
 
 	/**
+	 * Sets first name of the admin to the given first name
 	 * @param firstName the firstName to set
 	 */
 	public void setFirstName(String firstName) {
@@ -94,6 +125,7 @@ public class Account {
 
 
 	/**
+	 * Returns the last name of the admin
 	 * @return the lastName
 	 */
 	public String getLastName() {
@@ -102,6 +134,7 @@ public class Account {
 
 
 	/**
+	 * Sets the last name of the admin to the given last name
 	 * @param lastName the lastName to set
 	 */
 	public void setLastName(String lastName) {
@@ -110,6 +143,7 @@ public class Account {
 
 
 	/**
+	 * returns the admin's username
 	 * @return the username
 	 */
 	public String getUsername() {
@@ -118,6 +152,7 @@ public class Account {
 
 
 	/**
+	 * Sets the username of the admin to the given username
 	 * @param username the username to set
 	 */
 	public void setUsername(String username) {
@@ -126,6 +161,7 @@ public class Account {
 
 
 	/**
+	 * returns the admin's password
 	 * @return the password
 	 */
 	public String getPassword() {
@@ -134,6 +170,7 @@ public class Account {
 
 
 	/**
+	 * sets the password to the given password
 	 * @param password the password to set
 	 */
 	public void setPassword(String password) {
@@ -142,6 +179,7 @@ public class Account {
 
 
 	/**
+	 * returns the type of the Admin (should be a)
 	 * @return the type
 	 */
 	public char getType() {
@@ -150,6 +188,7 @@ public class Account {
 
 
 	/**
+	 * sets the type of the Admin
 	 * @param type the type to set
 	 */
 	public void setType(char type) {
@@ -158,6 +197,7 @@ public class Account {
 
 
 	/**
+	 * returns the status of the admin
 	 * @return the status
 	 */
 	public char getStatus() {
@@ -166,6 +206,8 @@ public class Account {
 
 
 	/**
+	 * Sets status of the admin.
+	 * Either deactivated 'N' or activated 'Y'
 	 * @param status the status to set
 	 */
 	public void setStatus(char status) {

@@ -1,12 +1,13 @@
 package Project;
 /**
- * 
+ *Admin.java 
  */
 
 /**
  * Class that models an Admin  (Administrator)
  * extends the class Account
- * @author hgmurphey
+ * @author Haylie Murphey
+ * @version 3 March 2016
  *
  */
 public class Admin extends Account{

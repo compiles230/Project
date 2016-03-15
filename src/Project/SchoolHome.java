@@ -1,6 +1,6 @@
 package Project;
 /**
- * File: schoolHome.java
+ * File: SchoolHome.java
  * @author Ellen Stensrud
  * @version March 3, 2016
  *
@@ -8,21 +8,29 @@ package Project;
 public class SchoolHome {
 	
 	/**
-	 * 
+	 * Instance of school
 	 */
 	private School school;
+	
+	/**
+	 * Instance of DatabaseController
+	 */
 	private DatabaseController dBCont; 
 	//private SearchController searchCont;
 	
+	/**
+	 * Default constructor
+	 */
 	public SchoolHome() {
 		School school = new School();
 		DatabaseController dBCont = new DatabaseController();
 		//SearchController searchCont = new SearchController();
 	}
 
-	//public SchoolHome(DatabaseController dBCont,
-	//SearchController searchCont)
-	
+	/**
+	 * Constructor with given DatabaseController
+	 * @param dBCont
+	 */
 	public SchoolHome(DatabaseController dBCont) {
 		this.school = null;
 		this.dBCont = dBCont;
@@ -59,6 +67,12 @@ public class SchoolHome {
 		return null;
 	}
 	
+	
+	/**
+	 * Saves a given school to a user's list of saved schools
+	 * @param username username of the user to add the school to
+	 * @param school name of the school to be added
+	 */
 	public void saveSchool(String username, String school){
 		dBCont.addSchool(username, school);
 	}

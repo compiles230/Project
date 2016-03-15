@@ -133,7 +133,9 @@ public class DatabaseController {
     
     /**
      * Deactivate by status
-     * @param username
+     * @param username username of the user to be deactivated
+     * @return -1 if failed
+     * @return other if operation succeeded
      */
 	public int deactivateUser(String username) 
     {
@@ -221,15 +223,14 @@ public class DatabaseController {
 	 
 	 /**
 	  * User selects to edit their own account information
-	  * @param username
-	  * @param firstName
-	  * @param lastName
-	  * @param password
-	  * @param type
-	  * @param status
+	  * @param username username of the given User
+	  * @param firstName first name of the given user
+	  * @param lastName last name of the given user
+	  * @param password password of the given user
+	  * @param type type of user
+	  * @param status status of the user
 	  */
 	public void user_editUserInfo(User user, String username, String firstName, String lastName, String password) {
-		//Account user = (Account) getSpecificUser(username);
 		User currUser = user;
 		if (user != null){
 			user.setFirstName(firstName);
@@ -270,7 +271,7 @@ public class DatabaseController {
 	 /**
 	  * Prints out the information of the given school if found
 	  * otherwise prints "School not found"
-	  * @param school
+	  * @param school name of the school to be viewed
 	  */
 	public void viewSchool(String school){
 		 boolean found = false;

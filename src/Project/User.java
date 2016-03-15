@@ -7,23 +7,29 @@ import java.util.*;
 import java.io.*;
 
 /**
+ * Class that models an account of type User
+ * extends the Account Class
  * @author Kenzie Flickinger
  * @version 1.0 3/4/16
  *
  */
 public class User extends Account{
 	
+	/**
+	 * Default constructor
+	 */
 	public User(){
 		super();
 	}
 
 	 /**
-	 * @param firstName
-	 * @param lastName
-	 * @param username
-	 * @param password
-	 * @param type
-	 * @param status
+	  * Constructor with given parameters
+	 * @param firstName first name of the user
+	 * @param lastName last name of the user
+	 * @param username username of the user
+	 * @param password password of the user
+	 * @param type type of user
+	 * @param status status of the user
 	 */
 	public User(String firstName, String lastName, String username, String password, char type, char status) {
 		super(firstName, lastName, username, password, type, status);

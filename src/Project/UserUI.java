@@ -1,21 +1,37 @@
 package Project;
 import dblibrary.project.csci230.*;
 /**
- * 
+ *UserUI.java 
  */
 
 /**
- * @author miflickinger
- *
+ * User Interface for account of type User
+ * @author Kenzie Flickinger
+ * @version 7 March 2016 
  */
 public class UserUI {
+	/**
+	 * Instance of AccountController
+	 */
 	private AccountController accCont;
+	
+	/**
+	 * Instance of UserController
+	 */
 	private UserController userCont;
+	
+	/**
+	 * Instance of SchoolHome
+	 */
 	private SchoolHome schoolHome;
+	
+	/**
+	 * Instance of User
+	 */
 	private User user;
 	
 	/**
-	 * 
+	 * Default constructor
 	 */
 	public UserUI(){
 		this.accCont = null;
@@ -25,7 +41,7 @@ public class UserUI {
 	}
 	
 	/**
-	 * 
+	 * Constructor with given parameters
 	 * @param accCont
 	 * @param userCont
 	 * @param schoolHome
@@ -39,9 +55,9 @@ public class UserUI {
 	}
 	
 	/**
-	 * 
-	 * @param username
-	 * @param password
+	 * Logs on a user
+	 * @param username username of the user
+	 * @param password password of the user
 	 */
 	public void LogOn(String username, String password){
 		
@@ -87,6 +103,7 @@ public class UserUI {
 		
 	}
 	
+	//****** INCOMPLETE ******//
 	/**
 	 * This method allows user to search for a school by schoolname
 	 * @param schoolname
@@ -95,6 +112,8 @@ public class UserUI {
 		
 	}
 	
+	
+	//****** INCOMPLETE ******//
 	/**
 	 * Method allows user to search for school by an emphasis
 	 * @param schoolName
