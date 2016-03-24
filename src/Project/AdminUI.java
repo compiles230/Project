@@ -217,6 +217,13 @@ public class AdminUI {
 	
 	}
 	
+	/**
+	 * Method that will print a list of all the schools in the database
+	 */
+	public void viewAllSchools(){
+		sch.viewAllSchools();
+	}
+	
 	//**** INCOMPLETE *****
 	public boolean confirmDeactivateUser(String confirm){
 		if (confirm.equals("y")){

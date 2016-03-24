@@ -3,16 +3,12 @@
  */
 import Project.*;
 import dblibrary.project.csci230.*;
-import java.io.*;
-import java.util.*;
 /**
  * @author hgmurphey
  *
  */
 public class CMCBasicDriver {
-	/**
-	 * 
-	 */
+
 	public CMCBasicDriver() {
 	
 	}
@@ -22,7 +18,7 @@ public class CMCBasicDriver {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		CMCBasicDriver driver = new CMCBasicDriver();
+	
 		UniversityDBLibrary db = new UniversityDBLibrary("andyetitco","andyetitco","ehk3");
 		DatabaseController dbc = new DatabaseController(db);
 		SchoolHome sh = new SchoolHome(dbc);
@@ -52,6 +48,8 @@ public class CMCBasicDriver {
 		adminUI.editUniversity("DEMO UNIVERSITY","x","x","x",1,1.1,1.2,1.3,1.4,1.5,1,1.6,1.7,1,1,1);
 		
 
+		System.out.println("\n\n******************************* USE CASE 16: VIEW ALL USERS *******************************\n\n");
+		adminUI.viewUsers();
 		
 		System.out.println("\n\n******************************* USE CASE 12: EDIT USER (luser,Lynn,User,user,a,Y)  *******************************\n\n");
 		adminUI.editUser("luser","Lynn","UserXX","user",'a','Y');
@@ -62,11 +60,15 @@ public class CMCBasicDriver {
 		System.out.println("\n");
 		adminUI.viewUsers();
 		
+		
 		System.out.println("\n\n******************************* USE CASE 14: ADD USER (Haylie, Murphey, hgmurphey, 1234, 'u')  *******************************\n\n");
 		adminUI.addUser("Kenzie", "F", "kflick", "1234", 'u');
 		adminUI.viewUsers();
 		
-		System.out.println("\n\n******************************* USE CASE 15: LOG OUT  *******************************\n\n");
+		System.out.println("\n\n******************************* USE CASE 15: VIEW ALL SCHOOLS *******************************");
+		adminUI.viewAllSchools();
+		
+		System.out.println("\n\n******************************* USE CASE 18: LOG OUT  *******************************\n\n");
 		adminUI.LogOut();
 		
 		System.out.println("\n\n******************************* USER FUNCTIONS *******************************");
@@ -80,15 +82,12 @@ public class CMCBasicDriver {
 		userUI.saveSchool("AUBURN");
 		userUI.saveSchool("BARD");
 		
-		
+		System.out.println("\n\n******************************* USE CASE 17: VIEW SAVED SCHOOLS*******************************");
 		userUI.viewSavedSchools();
 		
-		System.out.println("\n\n******************************* VIEW ALL SCHOOLS *******************************");
-		userUI.viewAllSchools();
 		
 		System.out.println("\n\n******************************* USE CASE 7: REMOVE SCHOOL (juser AUBURN)*******************************");
 		userUI.removeSchool("AUBURN");
-		userUI.removeSchool("BARD");
 		userUI.viewSavedSchools();
 		
 		System.out.println("\n\n******************************* USE CASE 9: EDIT PROFILE (juser, EDITED, EDITED, user)*******************************");

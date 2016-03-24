@@ -1,5 +1,5 @@
 package Project;
-import dblibrary.project.csci230.*;
+
 /**
  *UserUI.java 
  */
@@ -141,12 +141,6 @@ public class UserUI {
 		
 	}
 	
-	/**
-	 * Method that will print a list of all the schools in the database
-	 */
-	public void viewAllSchools(){
-		schoolHome.viewAllSchools();
-	}
 	
 	/**
 	 * Views a specific school
