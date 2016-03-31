@@ -54,13 +54,13 @@ public class schoolTest {
 		assertEquals("The school location is " + expRes,expRes, result);
 	}
 	
-	//@Test
-	//public void testSetLocation() {
-		//String location = "UBRAN";
-		//school.setLocation("URBAN");
-		//String result = school.getLocation();
-		//assertEquals("The school location is now " + location,location, result);
-	//}
+	@Test
+	public void testSetLocation() {
+		String location = "URBAN";
+		school.setLocation("URBAN");
+		String result = school.getLocation();
+		assertEquals("The school location is now " + location,location, result);
+	}
 	
 	@Test
 	public void testGetControl(){
