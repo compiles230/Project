@@ -58,7 +58,7 @@ public class DatabaseController {
 	 * @param socialScale
 	 * @param qualityOfLifeScale
 	 */
-	public void addUniversity(String school, String state, String location, String control,
+	public int addUniversity(String school, String state, String location, String control,
             int numberOfStudents, double percentFemales, double SATVerbal, double SATMath,
             double expenses, double percentFinancialAid, int numberOfApplicants,
             double percentAdmitted, double percentEnrolled, int academicsScale,
@@ -66,7 +66,7 @@ public class DatabaseController {
 		int passed = database.university_addUniversity(school, state, location,control, numberOfStudents,
 				percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, numberOfApplicants,
 				percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
-
+		return passed;
     }
 	
 	/**
@@ -273,7 +273,7 @@ public class DatabaseController {
 	  * otherwise prints "School not found"
 	  * @param school name of the school to be viewed
 	  */
-	public void viewSchool(String school){
+	public ArrayList<String> viewSchool(String school){
 		 boolean found = false;
 		 ArrayList<String> schoolList = new ArrayList<String>();
 		 String[][] schools = database.university_getUniversities();
@@ -291,6 +291,7 @@ public class DatabaseController {
 			if (found != true){
 				System.out.println("School not found");
 			}
+			return schoolList;
 	 }
 	 
 	public ArrayList<String> saveArray(String[][] array, int row) {
