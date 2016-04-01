@@ -273,7 +273,7 @@ public class DatabaseController {
 	  * otherwise prints "School not found"
 	  * @param school name of the school to be viewed
 	  */
-	public void viewSchool(String school){
+	public ArrayList<String> viewSchool(String school){
 		 boolean found = false;
 		 ArrayList<String> schoolList = new ArrayList<String>();
 		 String[][] schools = database.university_getUniversities();
@@ -291,6 +291,7 @@ public class DatabaseController {
 			if (found != true){
 				System.out.println("School not found");
 			}
+			return schoolList;
 	 }
 	 
 	public ArrayList<String> saveArray(String[][] array, int row) {
@@ -338,6 +339,7 @@ public class DatabaseController {
 	  * Removes given school from the given user's list of favorite schools
 	  * @param username
 	  * @param school
+	  * @return -1 if failed
 	  */
 	public int removeSchool(String username, String school) {
 		int passed = database.user_removeSchool(username, school);
