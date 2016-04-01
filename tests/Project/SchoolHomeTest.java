@@ -27,18 +27,7 @@ public class SchoolHomeTest {
 		sh.saveSchool("juser", "AUBURN");
 		ArrayList<String> schools = new ArrayList<String>();
 		assertTrue("juser has the school 'AUBURN' in their  list is true",schools.contains("AUBURN"));
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		 
+			 
 	}
 
 	@Test

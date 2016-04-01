@@ -1,5 +1,7 @@
 package Project;
 
+import java.util.ArrayList;
+
 /**
  *UserUI.java 
  */
@@ -153,8 +155,9 @@ public class UserUI {
 	/**
 	 * View user's list of saved schools
 	 */
-	public void viewSavedSchools(){
-		schoolHome.viewSavedSchools(user.getUsername());
+	public ArrayList<String> viewSavedSchools(){
+		ArrayList<String> schools = schoolHome.viewSavedSchools(user.getUsername());
+		return schools;
 	}
 	
 	/**

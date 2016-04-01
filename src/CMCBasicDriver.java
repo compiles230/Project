@@ -81,6 +81,7 @@ public class CMCBasicDriver {
 		System.out.println("\n\n******************************* USE CASE 5: SAVE SCHOOL (juser AUBURN)*******************************");
 		userUI.saveSchool("AUBURN");
 		userUI.saveSchool("BARD");
+		userUI.saveSchool("BARUCH");
 		
 		System.out.println("\n\n******************************* USE CASE 17: VIEW SAVED SCHOOLS*******************************");
 		userUI.viewSavedSchools();
@@ -88,7 +89,11 @@ public class CMCBasicDriver {
 		
 		System.out.println("\n\n******************************* USE CASE 7: REMOVE SCHOOL (juser AUBURN)*******************************");
 		userUI.removeSchool("AUBURN");
+		userUI.removeSchool("BARD");
+		userUI.removeSchool("BARUCH");
+		
 		userUI.viewSavedSchools();
+		
 		
 		System.out.println("\n\n******************************* USE CASE 9: EDIT PROFILE (juser, EDITED, EDITED, user)*******************************");
 		userUI.editProfile("juser", "EDITED", "EDITED", "user");

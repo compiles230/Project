@@ -275,12 +275,16 @@ public class DatabaseController {
 	  */
 	public void viewSchool(String school){
 		 boolean found = false;
+		 ArrayList<String> schoolList = new ArrayList<String>();
 		 String[][] schools = database.university_getUniversities();
 			for (int i = 0; i < schools.length - 1; i++) {
 			    for (int j = 0; j < schools[i].length; j++) {
 			        if (schools[i][j].equals(school)){
 			        	found = true;
-			            printArray(schools, i);
+			            schoolList = saveArray(schools, i);
+			            for (String s : schoolList){
+			            	System.out.println(s);
+			            }
 			        }
 			    }
 			}
@@ -289,24 +293,35 @@ public class DatabaseController {
 			}
 	 }
 	 
-	public void printArray(String[][] array, int row) {
-		    for(int i = 0; i < array[row].length; i++)
-		        System.out.print(array[row][i] + " || ");
+	public ArrayList<String> saveArray(String[][] array, int row) {
+		ArrayList<String>schools = new ArrayList<String>();
+		    for(int i = 1; i < array[row].length; i++)
+		        schools.add(array[row][i]);
+		    	
+		   return schools;
 		}
+	
+	public void printArraySchool(ArrayList<String> school){
+		for (String s: school){
+			System.out.println(s);
+		}
+	}
 	 
 	/**
 	 * Prints user's current saved schools
 	 * @param username username of the user
 	 */
-	public void viewSavedSchools(String username){
+	public ArrayList<String> viewSavedSchools(String username){
 		boolean found = false;
+		ArrayList<String> schools = new ArrayList<String>();
 		String[][] usersSavedSchools = database.user_getUsernamesWithSavedSchools();
 		for (int i = 0; i < usersSavedSchools.length - 1; i++) {
 		    for (int j = 0; j < usersSavedSchools[i].length; j++) {
 		    		if (usersSavedSchools[i][j].equals(username))
 		    		{
 		    			found = true;
-		    			printArray(usersSavedSchools, i);
+		    			schools = saveArray(usersSavedSchools, i);
+		    			printArraySchool(schools);
 		    		}
 		    	}
 		    
@@ -314,7 +329,7 @@ public class DatabaseController {
 		if (found != true){
 			System.out.println("Nothing to display");
 		}
-		
+		return schools;
 		
 	}
 	 
@@ -345,6 +360,17 @@ public class DatabaseController {
 		    	}
 		    System.out.println();
 		    }
+	}
+	
+	/**
+	 * Returns a 2D array of schools
+	 */
+	public String[][] getAllSchools(){
+		String[][]schools = database.university_getUniversities();
+		
+		return schools;
+		
+		
 	}
 	 
 }

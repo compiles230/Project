@@ -1,4 +1,7 @@
 package Project;
+
+import java.util.ArrayList;
+
 /**
  * File: SchoolHome.java
  * @author Ellen Stensrud
@@ -99,8 +102,9 @@ public class SchoolHome {
 	 * View a given user's list of saved schools
 	 * @param username name of user
 	 */
-	public void viewSavedSchools(String username){
-		dBCont.viewSavedSchools(username);
+	public ArrayList<String> viewSavedSchools(String username){
+		ArrayList<String> schools = dBCont.viewSavedSchools(username);
+		return schools;
 	}
 	
 	public void printArray(String[][] array, int row) {
