@@ -5,7 +5,11 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class DatabaseControllerTest {
+	private UniversityDBLibrary db;
+	private DatabaseController dbc;
+	
 
+	
 	@Test
 	public void testDatabaseController() {
 		fail("Not yet implemented");

@@ -338,6 +338,7 @@ public class DatabaseController {
 	  * Removes given school from the given user's list of favorite schools
 	  * @param username
 	  * @param school
+	  * @return -1 if failed
 	  */
 	public int removeSchool(String username, String school) {
 		int passed = database.user_removeSchool(username, school);
