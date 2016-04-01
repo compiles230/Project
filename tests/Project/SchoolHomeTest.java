@@ -26,6 +26,8 @@ public class SchoolHomeTest {
 	public void testSaveSchool() {
 		sh.saveSchool("juser", "AUBURN");
 		ArrayList<String> schools = new ArrayList<String>();
+		for(String s: schools)
+			System.out.println(s);
 		assertTrue("juser has the school 'AUBURN' in their  list is true",schools.contains("AUBURN"));
 			 
 	}
@@ -33,6 +35,15 @@ public class SchoolHomeTest {
 	@Test
 	public void testRemoveSchool() {
 		sh.removeSchool("juser", "AUBURN");
+		ArrayList<String> schools = new ArrayList<String>();
+		assertFalse("juser does not have school 'AUBURN'",schools.contains("AUBURN"));
+	}
+	
+	@Test
+	public void testRemoveSchoolFails(){
+		sh.removeSchool("juser", "AUBURN");
+		sh.removeSchool("juser", "AUBURN");
+		
 	}
 
 	@Test
