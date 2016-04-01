@@ -87,6 +87,7 @@ public class SchoolHome {
 	 */
 	public int removeSchool(String username, String school){
 		int passed = dBCont.removeSchool(username, school);
+		return passed;
 	}
 
 	
@@ -130,14 +131,15 @@ public class SchoolHome {
 	 * @param socialScale
 	 * @param qualityOfLifeScale
 	 */
-	public void addUniversity(String schoolName, String state, String location,
+	public int addUniversity(String schoolName, String state, String location,
 			  String control, int numberOfStudents, double percentFemales,
 			  double SATVerbal, double SATMath, double expenses, double percentFinancialAid,
 			  int numberOfApplicants, double percentAdmitted, double percentEnrolled,
 			  int academicsScale, int socialScale, int qualityOfLifeScale){
-		dBCont.addUniversity(schoolName, state, location, control, numberOfStudents, percentFemales, SATVerbal, SATMath, expenses,
+		int pass = dBCont.addUniversity(schoolName, state, location, control, numberOfStudents, percentFemales, SATVerbal, SATMath, expenses,
 							percentFinancialAid, numberOfApplicants, percentAdmitted,
 							percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
+		return pass;
 	}
 	
 	/**

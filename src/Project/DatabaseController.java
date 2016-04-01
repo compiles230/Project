@@ -58,7 +58,7 @@ public class DatabaseController {
 	 * @param socialScale
 	 * @param qualityOfLifeScale
 	 */
-	public void addUniversity(String school, String state, String location, String control,
+	public int addUniversity(String school, String state, String location, String control,
             int numberOfStudents, double percentFemales, double SATVerbal, double SATMath,
             double expenses, double percentFinancialAid, int numberOfApplicants,
             double percentAdmitted, double percentEnrolled, int academicsScale,
@@ -66,7 +66,7 @@ public class DatabaseController {
 		int passed = database.university_addUniversity(school, state, location,control, numberOfStudents,
 				percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, numberOfApplicants,
 				percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
-
+		return passed;
     }
 	
 	/**

@@ -34,36 +34,34 @@ public class SchoolHomeTest {
 
 	@Test
 	public void testRemoveSchool() {
-		sh.removeSchool("juser", "AUBURN");
+		int passed = sh.removeSchool("juser", "AUBURN");
 		ArrayList<String> schools = new ArrayList<String>();
-		assertFalse("juser does not have school 'AUBURN'",schools.contains("AUBURN"));
+		assertEquals(1,1,passed);
 	}
 	
-	@Test
+	/**@Test
 	public void testRemoveSchoolFails(){
 		sh.removeSchool("juser", "AUBURN");
-		sh.removeSchool("juser", "AUBURN");
+		int passed = sh.removeSchool("juser", "AUBURN");
+		assertEquals(-1, passed);
+		
+	} */
+
+	@Test
+	public void testViewSchool() {
+		sh.viewSchool("AUBURN");
 		
 	}
 
 	@Test
-	public void testViewSchool() {
-		fail("Not yet implemented");
-	}
-
-	@Test
 	public void testViewSavedSchools() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testPrintArray() {
-		fail("Not yet implemented");
+		sh.viewSavedSchools("juser");
 	}
 
 	@Test
 	public void testAddUniversity() {
-		fail("Not yet implemented");
+		int passed = sh.addUniversity("Duke", "NC", "SUBURBAN", "STATE", 14950, 52, 700, 720, 32000, 84, 44000, 11, 87, 4, 4, 4);
+		assertEquals(1, passed);
 	}
 
 	@Test
