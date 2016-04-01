@@ -87,6 +87,7 @@ public class SchoolHome {
 	 */
 	public int removeSchool(String username, String school){
 		int passed = dBCont.removeSchool(username, school);
+		return passed;
 	}
 
 	
