@@ -85,8 +85,8 @@ public class SchoolHome {
 	 * @param username Username of user who wishes to remove the school
 	 * @param school Name of the school to be removed
 	 */
-	public void removeSchool(String username, String school){
-		dBCont.removeSchool(username, school);
+	public int removeSchool(String username, String school){
+		int passed = dBCont.removeSchool(username, school);
 	}
 
 	

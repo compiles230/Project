@@ -339,15 +339,10 @@ public class DatabaseController {
 	  * @param username
 	  * @param school
 	  */
-	public void removeSchool(String username, String school) {
+	public int removeSchool(String username, String school) {
 		int passed = database.user_removeSchool(username, school);
-		if (passed == -1){
-			System.out.println("Remove school operation failed");
-		}
-		else
-		System.out.println(school + " removed from " + username +"'s list");
-	      
-	    }
+		return passed;
+	}
 	
 	/**
 	 * Prints all the schools in the database library
