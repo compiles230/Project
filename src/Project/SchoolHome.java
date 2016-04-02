@@ -184,4 +184,10 @@ public class SchoolHome {
 		dBCont.viewAllSchools();
 	}
 	
+	public int deleteUniversity(String school){
+		int passed = dBCont.deleteUniversity(school);
+		return passed;
+	}
+	
+	
 }

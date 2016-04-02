@@ -366,8 +366,12 @@ public class DatabaseController {
 		String[][]schools = database.university_getUniversities();
 		
 		return schools;
-		
-		
+	
+	}
+	
+	public int deleteUniversity(String school){
+		int passed = database.university_deleteUniversity(school);
+		return passed;
 	}
 	 
 }
