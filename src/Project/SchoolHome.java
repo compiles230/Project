@@ -76,9 +76,10 @@ public class SchoolHome {
 	 * @param username username of the user to add the school to
 	 * @param school name of the school to be added
 	 */
-	public void saveSchool(String username, String school){
-		dBCont.addSchool(username, school);
-	}
+	public int saveSchool(String username, String school){
+		int passed = dBCont.addSchool(username, school);
+		return passed;
+				}
 	
 	/**
 	 * Method removes given school from a given user's list of saved schools

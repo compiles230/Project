@@ -123,11 +123,9 @@ public class DatabaseController {
 	 * @param username name of the user
 	 * @param school name of the school to be saved
 	 */
-	public void addSchool(String username, String school) {
+	public int addSchool(String username, String school) {
            int passed = database.user_saveSchool(username, school);
-            if (passed == -1){
-            	System.out.println("FAILED");
-            }
+           return passed;
        }
     
     

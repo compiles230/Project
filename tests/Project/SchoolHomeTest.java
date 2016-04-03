@@ -24,12 +24,12 @@ public class SchoolHomeTest {
 
 	@Test
 	public void testSaveSchool() {
-		sh.saveSchool("juser", "BARD");
-		sh.saveSchool("juser", "AUBURN");
+		sh.removeSchool("juser", "AUBURN");
+		int pass = sh.saveSchool("juser", "AUBURN");
 		ArrayList<String> schools = sh.viewSavedSchools("juser");
-		boolean b = schools.contains("BARD");
-		System.out.println(b + "!!");
-		assertEquals(b,true);
+		System.out.println("*********" + schools);
+		boolean b = schools.contains("AUBURN");
+		assertEquals(1, pass);
 		//sh.removeSchool("juser", "AUBURN");
 			 
 	}
@@ -40,32 +40,25 @@ public class SchoolHomeTest {
 		ArrayList<String> schools = new ArrayList<String>();
 		assertEquals(1,1,passed);
 	}
-	
-	/**@Test
-	public void testRemoveSchoolFails(){
-		sh.removeSchool("juser", "AUBURN");
-		int passed = sh.removeSchool("juser", "AUBURN");
-		assertEquals(-1, passed);
-		
-	} */
 
-	/**@Test
+	@Test
 	public void testViewSchool() {
 		sh.viewSchool("AUBURN");
 		
-	}*/
+	}
 
-	/**@Test
+	@Test
 	public void testViewSavedSchools() {
 		ArrayList<String> schools = sh.viewSavedSchools("juser");
-		assertFalse("View the schools", );
+		assertFalse("View the schools", schools.isEmpty());
 		
-	}*/
+	}
 
 	@Test
 	public void testAddUniversity() {
-		int passed = sh.addUniversity("ST. MARYS", "MN", "SMALL-CITY", "STATE", 14950, 52, 700, 720, 32000, 84, 44000, 11, 87, 4, 4, 4);
+		int passed = sh.addUniversity("GUSTAVUS", "MN", "SMALL-CITY", "STATE", 14950, 52, 700, 720, 32000, 84, 44000, 11, 87, 4, 4, 4);
 		assertEquals(1, passed);
+		sh.deleteUniversity("GUSTAVUS");
 	}
 
 	@Test
