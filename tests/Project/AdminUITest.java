@@ -2,18 +2,32 @@ package Project;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
+import dblibrary.project.csci230.UniversityDBLibrary;
+
 public class AdminUITest {
+	private UniversityDBLibrary db;
+	private DatabaseController dbc;
+	private Admin admin;
+	private SchoolHome sh;
+	private AccountController ac;
+	private AdminUI au;
+	
+	/**
+	 * @throws java.lang.Exception
+	 */
+	@Before
+	public void setUp() throws Exception {
+		db = new UniversityDBLibrary("andyetitco","andyetico","ehk3");
+		dbc = new DatabaseController(db);
+		ac = new AccountController(dbc);
+		sh = new SchoolHome(dbc);
+		admin = new Admin("Noreen","Admin","nadmin","admin",'a','Y');
+		au = new AdminUI(ac, sh, admin);
 
-	@Test
-	public void testAdminUI() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testAdminUIAdminControllerAccountControllerSchoolHomeAdmin() {
-		fail("Not yet implemented");
+		
 	}
 
 	@Test

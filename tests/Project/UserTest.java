@@ -160,6 +160,7 @@ private User user;
 	@Test
 	public void testToString() {
 		String expRes = "User [firstName=Kenzie, lastName()=Flickinger, username()=miflickinger, password()=password, type()=u, status()=Y]";
+		System.out.println(user.toString());
 		String res = user.toString();
 		assertEquals("To string is: " + expRes, expRes, res);
 	}

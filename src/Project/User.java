@@ -180,8 +180,9 @@ public class User extends Account{
      */
     @Override
     public String toString() {
-        return ("\n-User-\nFirst Name: " + getFirstName() + "\nLast Name: " + getLastName() + "\nUsername: " + getUsername() + "\nPassword: "
-                + getPassword() + "\nType: " + getType() + "\nStatus: " + getStatus() );
+    	return "User [firstName=" + getFirstName() + ", lastName()=" + getLastName() + ", username()="
+				+ getUsername() + ", password()=" + getPassword() + ", type()=" + getType() + ", status()="
+				+ getStatus() + "]";
     }
 
 }
