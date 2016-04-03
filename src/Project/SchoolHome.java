@@ -18,7 +18,7 @@ public class SchoolHome {
 	/**
 	 * Instance of DatabaseController
 	 */
-	private DatabaseController dBCont; 
+	private static DatabaseController dBCont; 
 	//private SearchController searchCont;
 	
 	/**
@@ -76,7 +76,7 @@ public class SchoolHome {
 	 * @param username username of the user to add the school to
 	 * @param school name of the school to be added
 	 */
-	public int saveSchool(String username, String school){
+	public static int saveSchool(String username, String school){
 		int passed = dBCont.addSchool(username, school);
 		return passed;
 				}
@@ -86,7 +86,7 @@ public class SchoolHome {
 	 * @param username Username of user who wishes to remove the school
 	 * @param school Name of the school to be removed
 	 */
-	public int removeSchool(String username, String school){
+	public static int removeSchool(String username, String school){
 		int passed = dBCont.removeSchool(username, school);
 		return passed;
 	}
@@ -104,7 +104,7 @@ public class SchoolHome {
 	 * View a given user's list of saved schools
 	 * @param username name of user
 	 */
-	public ArrayList<String> viewSavedSchools(String username){
+	public static ArrayList<String> viewSavedSchools(String username){
 		ArrayList<String> schools = dBCont.viewSavedSchools(username);
 		return schools;
 	}

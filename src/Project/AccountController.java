@@ -31,7 +31,7 @@ public class AccountController {
 	/**
 	 * Variable of DatabaseController
 	 */
-	private DatabaseController dbc;
+	private static DatabaseController dbc;
 	/**
 	 * Default AccountController0
 	 */
@@ -97,7 +97,7 @@ public class AccountController {
 	 * @return null if the user does not exist
 	 * @return account if the user does exist in the database
 	 */
-	public Account verifyUser(String username, String password){
+	public static Account verifyUser(String username, String password){
 		Account user = (Account) dbc.getSpecificUser(username);
 		return user;
 		

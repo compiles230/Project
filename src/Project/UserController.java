@@ -23,15 +23,15 @@ public class UserController {
 	/**
 	 * Instance of DatabaseController
 	 */
-	private DatabaseController dBController;
+	private static DatabaseController dBController;
 
 	/**
-	 * Deafult Constructor
+	 * Defult Constructor
 	 */
 	public UserController(){
 		School school = null;
 		User user = null;
-		DatabaseController dBContoller = null;
+		DatabaseController dBController = null;
 	}
 	
 	/**
@@ -48,16 +48,8 @@ public class UserController {
 	 * @param username
 	 * @param password
 	 */
-	public void editProfile(User user, String username, String firstName, String lastName, String password){
+	public static void editProfile(User user, String username, String firstName, String lastName, String password){
 		dBController.user_editUserInfo(user, username, firstName, lastName, password);
-	}
-	
-	/**
-	 * Allows user to remove school from saved schools list
-	 * @param school
-	 */
-	public void removeSchool(String username, String school){
-		dBController.removeSchool(username, school);
 	}
 
 }
