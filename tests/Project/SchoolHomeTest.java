@@ -24,11 +24,13 @@ public class SchoolHomeTest {
 
 	@Test
 	public void testSaveSchool() {
+		sh.saveSchool("juser", "BARD");
 		sh.saveSchool("juser", "AUBURN");
-		ArrayList<String> schools = new ArrayList<String>();
-		for(String s: schools)
-			System.out.println(s);
-		assertTrue("juser has the school 'AUBURN' in their  list is true",schools.contains("AUBURN"));
+		ArrayList<String> schools = sh.viewSavedSchools("juser");
+		boolean b = schools.contains("BARD");
+		System.out.println(b + "!!");
+		assertEquals(b,true);
+		//sh.removeSchool("juser", "AUBURN");
 			 
 	}
 
@@ -47,31 +49,35 @@ public class SchoolHomeTest {
 		
 	} */
 
-	@Test
+	/**@Test
 	public void testViewSchool() {
 		sh.viewSchool("AUBURN");
 		
-	}
+	}*/
 
-	@Test
+	/**@Test
 	public void testViewSavedSchools() {
-		sh.viewSavedSchools("juser");
-	}
+		ArrayList<String> schools = sh.viewSavedSchools("juser");
+		assertFalse("View the schools", );
+		
+	}*/
 
 	@Test
 	public void testAddUniversity() {
-		int passed = sh.addUniversity("Duke", "NC", "SUBURBAN", "STATE", 14950, 52, 700, 720, 32000, 84, 44000, 11, 87, 4, 4, 4);
+		int passed = sh.addUniversity("ST. MARYS", "MN", "SMALL-CITY", "STATE", 14950, 52, 700, 720, 32000, 84, 44000, 11, 87, 4, 4, 4);
 		assertEquals(1, passed);
 	}
 
 	@Test
 	public void testEditUnivesity() {
-		fail("Not yet implemented");
+		boolean passed = sh.editUniversity("Duke", "N/A", "SUBURBAN", "STATE", 14950, 52, 700, 720, 32000, 84, 44000, 11, 87, 4, 4, 4);
+		assertTrue("Duke has been edited", passed);
+		
 	}
 
-	@Test
+	/**@Test
 	public void testViewAllSchools() {
 		fail("Not yet implemented");
-	}
+	}*/
 
 }

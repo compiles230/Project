@@ -42,10 +42,10 @@ public class CMCBasicDriver {
 		adminUI.createSchool("DEMO UNIVERSITY","x","x","x",1,1.1,1.2,1.3,1.4,1.5,1,1.6,1.7,1,1,1,"COMPUER SCIENCE");
 		adminUI.viewSchool("DEMO UNIVERSITY");
 		
-		System.out.println("\n\n******************************* USE CASE 10: EDIT SCHOOL (DEMO UNIVERSITY,EDIT,EDIT,EDIT,1,1.1,1.2,1.3,1.4,1.5,1,1.6,1.7,1,1,1) *******************************\n\n");
+		/**System.out.println("\n\n******************************* USE CASE 10: EDIT SCHOOL (DEMO UNIVERSITY,EDIT,EDIT,EDIT,1,1.1,1.2,1.3,1.4,1.5,1,1.6,1.7,1,1,1) *******************************\n\n");
 		adminUI.editUniversity("DEMO UNIVERSITY","EDIT","EDIT","EDIT",1,1.1,1.2,1.3,1.4,1.5,1,1.6,1.7,1,1,1);
 		adminUI.viewSchool("DEMO UNIVERSITY");
-		adminUI.editUniversity("DEMO UNIVERSITY","x","x","x",1,1.1,1.2,1.3,1.4,1.5,1,1.6,1.7,1,1,1);
+		adminUI.editUniversity("DEMO UNIVERSITY","x","x","x",1,1.1,1.2,1.3,1.4,1.5,1,1.6,1.7,1,1,1);*/
 		
 
 		System.out.println("\n\n******************************* USE CASE 16: VIEW ALL USERS *******************************\n\n");
@@ -82,6 +82,8 @@ public class CMCBasicDriver {
 		userUI.saveSchool("AUBURN");
 		userUI.saveSchool("BARD");
 		userUI.saveSchool("BARUCH");
+		userUI.viewSavedSchools();
+
 		
 		System.out.println("\n\n******************************* USE CASE 17: VIEW SAVED SCHOOLS*******************************");
 		userUI.viewSavedSchools();

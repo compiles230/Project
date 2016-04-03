@@ -162,7 +162,7 @@ public class SchoolHome {
 	 * @param qualityOfLifeScale
 	 * @return true if operation succeeded, false if it failed
 	 */
-	public boolean editUnivesity(String schoolName, String state, String location,
+	public boolean editUniversity(String schoolName, String state, String location,
 			  String control, int numberOfStudents, double percentFemales,
 			  double SATVerbal, double SATMath, double expenses, double percentFinancialAid,
 			  int numberOfApplicants, double percentAdmitted, double percentEnrolled,
