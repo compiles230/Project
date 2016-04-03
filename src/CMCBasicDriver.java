@@ -16,9 +16,7 @@ public class CMCBasicDriver {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-	
+	public static void main(String[] args) {	
 		UniversityDBLibrary db = new UniversityDBLibrary("andyetitco","andyetitco","ehk3");
 		DatabaseController dbc = new DatabaseController(db);
 		SchoolHome sh = new SchoolHome(dbc);
@@ -32,7 +30,7 @@ public class CMCBasicDriver {
 		
 		System.out.println("******************************* ADMIN FUNCTIONS *******************************");
 		System.out.println("USE CASE 1: LOG ON ADMIN *******************************");
-		adminUI.LogOn("nadmin","admin");
+		System.out.println(adminUI.LogOn("nadmin","admin"));
 		
 		
 		System.out.println("\n\n******************************* USE CASE 6: VIEW SCHOOL (ADELPHI) *******************************\n\n");
@@ -69,7 +67,7 @@ public class CMCBasicDriver {
 		adminUI.viewAllSchools();
 		
 		System.out.println("\n\n******************************* USE CASE 18: LOG OUT  *******************************\n\n");
-		adminUI.LogOut();
+		System.out.println(adminUI.LogOut());
 		
 		System.out.println("\n\n******************************* USER FUNCTIONS *******************************");
 		System.out.println("\n\n******************************* USE CASE 1: LOG ON USER *******************************");
