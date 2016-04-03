@@ -17,11 +17,7 @@ public class AdminUI {
 	 */
 	private Admin admin;
 	
-	/**
-	 * Instance of an AdminController
-	 */
-	private AdminController adminCont;
-	
+
 	/**
 	 * Instance of AccountController
 	 */
@@ -38,7 +34,6 @@ public class AdminUI {
 	 */
 	public AdminUI() {
 		admin = null;
-		adminCont = null;
 		accCont = null;
 	}
 	
@@ -47,8 +42,7 @@ public class AdminUI {
 	 * @param adminCont given AdminController
 	 * @param accCont given AccountController
 	 */
-	public AdminUI(AdminController adminCont, AccountController accCont, SchoolHome sch, Admin ad) {
-		this.adminCont = adminCont;
+	public AdminUI( AccountController accCont, SchoolHome sch, Admin ad) {
 		this.accCont = accCont;
 		this.sch = sch;
 		this.admin = ad;
@@ -62,7 +56,7 @@ public class AdminUI {
 							  double SATVerbal, double SATMath, double expenses, double percentFinancialAid,
 							  int numberOfApplicants, double percentAdmitted, double percentEnrolled,
 							  int academicsScale, int socialScale, int qualityOfLifeScale){
-		adminCont.editUniversity(schoolName, state, location, control, numberOfStudents, percentFemales,
+		sch.editUniversity(schoolName, state, location, control, numberOfStudents, percentFemales,
 								 SATVerbal, SATMath, expenses, percentFinancialAid, numberOfApplicants,
 								 percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
 		

@@ -27,7 +27,7 @@ public class CMCBasicDriver {
 		AccountController acc = new AccountController(dbc);
 		UserController uc = new UserController(dbc);
 		AdminController adc = new AdminController(acc, sh, dbc);
-		AdminUI adminUI = new AdminUI(adc,acc, sh, admin);
+		AdminUI adminUI = new AdminUI(acc, sh, admin);
 		UserUI userUI = new UserUI(acc, uc, sh, user);
 		
 		System.out.println("******************************* ADMIN FUNCTIONS *******************************");
