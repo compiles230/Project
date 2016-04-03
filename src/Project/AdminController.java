@@ -78,7 +78,7 @@ public class AdminController {
 			  double SATVerbal, double SATMath, double expenses, double percentFinancialAid,
 			  int numberOfApplicants, double percentAdmitted, double percentEnrolled,
 			  int academicsScale, int socialScale, int qualityOfLifeScale){
-		return schHome.editUnivesity(schoolName, state, location, control, numberOfStudents,
+		return schHome.editUniversity(schoolName, state, location, control, numberOfStudents,
 									percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid,
 									numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale,
 									socialScale, qualityOfLifeScale);
