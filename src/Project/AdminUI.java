@@ -17,7 +17,11 @@ public class AdminUI {
 	 */
 	private Admin admin;
 	
-
+	/**
+	 * Instance of an AdminController
+	 */
+	private AdminController adminCont;
+	
 	/**
 	 * Instance of AccountController
 	 */
@@ -34,6 +38,7 @@ public class AdminUI {
 	 */
 	public AdminUI() {
 		admin = null;
+		adminCont = null;
 		accCont = null;
 	}
 	
@@ -181,24 +186,24 @@ public class AdminUI {
 	 * @param username username of admin
 	 * @param password password of admin
 	 */
-	public void LogOn(String username, String password){
+	public String LogOn(String username, String password){
 		
 		boolean logOn = accCont.logOn(username, password);
 		if (logOn){
 			admin.logOn();
-			System.out.println("Log on successful");
+			return "Log on successful";
 		}
 		else
-			System.out.println("Log on unsuccessful, try again");
+			return "Log on unsuccessful, try again";
 	}
 	
-	public void LogOut(){
+	public String LogOut(){
 		boolean logOut = accCont.logOut((Account)admin);
 		if (logOut){
-			System.out.println(this.admin.getUsername() + " has logged out");
+			return this.admin.getUsername() + " has logged out";
 		}
 		else
-			System.out.println("Log out failed");
+			return "Log out failed";
 		
 	}
 	
