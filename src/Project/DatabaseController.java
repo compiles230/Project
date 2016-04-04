@@ -375,5 +375,10 @@ public class DatabaseController {
 		int passed = database.university_deleteUniversity(school);
 		return passed;
 	}
+	
+	public int deleteUser(String username){
+		int pass = database.user_deleteUser(username);
+		return pass;
+	}
 	 
 }
