@@ -182,7 +182,7 @@ public class SchoolHome {
 	 * Method that prints out all of the schools in the database
 	 */
 	public void viewAllSchools(){
-		dBCont.viewAllSchools();
+		DatabaseController.getAllSchools();
 	}
 	
 	public int deleteUniversity(String school){
