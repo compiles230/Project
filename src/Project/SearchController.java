@@ -1,3 +1,5 @@
+package Project;
+
 /**
 	 * SearchController.java
 	 */
@@ -8,7 +10,7 @@
 	 * find schools that they are interested in
 	 *
 	 * @author Kenzie Flickinger
-	 * @version 1
+	 * @version 1.0
 	 */
 	public class SearchController {
 		
@@ -24,7 +26,7 @@
 	    /**
 	     * List of schools still in search before a search method is used
 	     */
-	    private static ArrayList<School> genList = DatabaseController.viewAllSchools();
+	    private static ArrayList<School> genList = DatabaseController.getAllSchools();
 
 	    /**
 	     * Method calls on other private methods to make map of relevant schools
@@ -589,7 +591,7 @@
 	        if (!emphases.isEmpty()) {
 	            for (School school : genList) {
 	                if (school.getEmphases() != null) {
-	                            if (school.getEmphases().contains(emphases)) {
+	                            if (school.getEmphases().contains((CharSequence) emphases)) {
 	                                updatedList.add(school);
 	                        }
 	                }

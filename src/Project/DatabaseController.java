@@ -346,8 +346,9 @@ public class DatabaseController {
 	
 	/**
 	 * Prints all the schools in the database library
+	 * @return 
 	 */
-	public void viewAllSchools(){
+	public static ArrayList<School> viewAllSchools(){
 		String[][] unis = database.university_getUniversities();
 		for (int i = 0; i < unis.length - 1; i++) {
 		    for (int j = 0; j < unis[i].length; j++) {
@@ -355,17 +356,56 @@ public class DatabaseController {
 		    	}
 		    System.out.println();
 		    }
+		return null;
+	}
+	
+	
+	/**
+	 * Gets a list of all schools
+	 * 
+	 * @return a list of all schools in the form of ArrayList<School>
+	 */
+	public static ArrayList<School> getAllSchools() {
+		ArrayList<School> schools = new ArrayList<School>();
+		String[][] oldSchools = null;
+			oldSchools = database.university_getUniversities();
+		for (int i = 0; i < oldSchools.length; i++) {
+			String schoolName = oldSchools[i][0];
+			String state = oldSchools[i][1];
+			String location = oldSchools[i][2];
+			String control = oldSchools[i][3];
+			int numOfStudents = Integer.parseInt(oldSchools[i][4]);
+			double femalePercentage = Double.parseDouble(oldSchools[i][5]);
+			double SatVerbal = Double.parseDouble(oldSchools[i][6]);
+			double SatMath = Double.parseDouble(oldSchools[i][7]);
+			double expenses = Double.parseDouble(oldSchools[i][8]);
+			double finAid = Double.parseDouble(oldSchools[i][9]);
+			int numOfApplicants = Integer.parseInt(oldSchools[i][10]);
+			double admitted = Double.parseDouble(oldSchools[i][11]);
+			double enrolled = Double.parseDouble(oldSchools[i][12]);
+			int academicScale = Integer.parseInt(oldSchools[i][13]);
+			int socialScale = Integer.parseInt(oldSchools[i][14]);
+			int qualityOfLifeScale = Integer.parseInt(oldSchools[i][15]);
+			String emphases = oldSchools[i][16];
+			School uni = new School(schoolName, state, location,
+					control, numOfStudents, femalePercentage, SatVerbal,
+					SatMath, expenses, finAid, numOfApplicants,
+					admitted, enrolled, academicScale,
+					socialScale, qualityOfLifeScale);
+			schools.add(uni);
+		}
+		return schools;
 	}
 	
 	/**
 	 * Returns a 2D array of schools
 	 */
-	public String[][] getAllSchools(){
-		String[][]schools = database.university_getUniversities();
+	//public static String[][] getAllSchools(){
+	//	String[][]schools = database.university_getUniversities();
 		
-		return schools;
-	
-	}
+	//	return schools;
+	//
+	//}
 	
 	public int deleteUniversity(String school){
 		int passed = database.university_deleteUniversity(school);

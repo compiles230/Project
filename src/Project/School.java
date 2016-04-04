@@ -26,7 +26,7 @@ public class School {
 	private int qualityOfLifeScale;
 	private String emphases;
 	
-	public School() {
+	public School(String school, String state2, String location2, String control2, int numOfStudents, double femalePercentage2, double sATVerbal2, double sATMath2, double expenses2, double finAid, int numOfApplicants, double admitted2, double enrolled2, int academicScale, int socialScale2, int qualityOfLifeScale2) {
 		schoolName = null;
 		state = null;
 		location = null;
@@ -46,32 +46,9 @@ public class School {
 		emphases = null;
 	}
 	/**
-	 * 
-	 * @param schoolName
-	 * @param state
-	 * @param location
-	 * @param control
-	 * @param numberOfStudents
-	 * @param femalePercentage
-	 * @param satVerbal
-	 * @param satMath
-	 * @param expenses
-	 * @param financialAid
-	 * @param numberOfApplicants
-	 * @param admitted
-	 * @param enrolled
-	 * @param academicsScale
-	 * @param socialScale
-	 * @param qualityOfLifeScale
-	 * @param emphases
 	 */
 
-	public School(String schoolName, String state, String location,
-			String control, int numberOfStudents, double femalePercentage,
-			int satVerbal, int satMath, double expenses, double financialAid,
-			int numberOfApplicants, double admitted, double enrolled,
-			int academicsScale, int socialScale, int qualityOfLifeScale,
-			String emphases) {
+	public School() {
 		super();
 		this.schoolName = schoolName;
 		this.state = state;
