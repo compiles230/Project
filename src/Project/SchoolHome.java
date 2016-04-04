@@ -96,8 +96,8 @@ public class SchoolHome {
 	 * Prints a given school's information
 	 * @param schoolname Name of school to be viewed
 	 */
-	public void viewSchool(String schoolname){
-		dBCont.viewSchool(schoolname);
+	public ArrayList<String> viewSchool(String schoolname){
+		return dBCont.viewSchool(schoolname);
 	}
 	
 	/**
