@@ -26,7 +26,7 @@ public class School {
 	private int qualityOfLifeScale;
 	private String emphases;
 	
-	public School(String school, String state2, String location2, String control2, int numOfStudents, double femalePercentage2, double sATVerbal2, double sATMath2, double expenses2, double finAid, int numOfApplicants, double admitted2, double enrolled2, int academicScale, int socialScale2, int qualityOfLifeScale2) {
+	public School(String school, String state2, String location2, String control2, int numOfStudents, double femalePercentage2, double sATVerbal2, double sATMath2, double expenses2, double finAid, int numOfApplicants, double admitted2, double enrolled2, int academicScale, int socialScale2, int qualityOfLifeScale2, String string) {
 		schoolName = null;
 		state = null;
 		location = null;

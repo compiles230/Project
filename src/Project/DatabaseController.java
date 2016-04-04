@@ -395,7 +395,7 @@ public class DatabaseController {
 					control, numOfStudents, femalePercentage, SatVerbal,
 					SatMath, expenses, finAid, numOfApplicants,
 					admitted, enrolled, academicScale,
-					socialScale, qualityOfLifeScale);
+					socialScale, qualityOfLifeScale, emphases);
 			schools.add(uni);
 		}
 		return schools;
