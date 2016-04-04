@@ -11,7 +11,7 @@ public class schoolTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		school = new School("Duke", "NC", "SUBURBAN", "STATE", 14950, 52, 720, 70, 32000, 84, 44000, 11, 87, 4, 4, 4,"Physics, Math, and Anthropology");
+		school = new School("Duke", "NC", "SUBURBAN", "STATE", 14950, 52, 700, 720, 32000, 84, 44000, 11, 87, 4, 4, 4,"Physics, Math, and Anthropology");
 		
 		
 	}
