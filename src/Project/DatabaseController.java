@@ -85,6 +85,7 @@ public class DatabaseController {
 	public int addUniversityEmphasis(String school, String emphasis) {
     	int passed = database.university_addUniversityEmphasis(school,emphasis);
     	return passed;
+    	
 
     }
 	
@@ -208,7 +209,7 @@ public class DatabaseController {
 	  * Admin selects to edit a user's information 
 	  * @param username
 	  * @param firstName
-	  * @param lastName
+	  * @param System.out.println(lastName
 	  * @param password
 	  * @param type
 	  * @param status

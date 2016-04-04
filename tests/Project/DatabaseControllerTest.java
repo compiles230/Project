@@ -23,7 +23,7 @@ public class DatabaseControllerTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		db = new UniversityDBLibrary("andyetitco","andyetico","ehk3");
+		db = new UniversityDBLibrary("andyetitco","andyetitco","ehk3");
 		dbc = new DatabaseController(db);
 	}
 
@@ -33,17 +33,35 @@ public class DatabaseControllerTest {
 	 */
 	@Test
 	public void testAddUniversity() {
-		int res = dbc.addUniversity("BEMIDJI STATE", "MN", "URBAN", "STATE", 5000, 53, 600, 600, 12000, 50, 1000, 100, 80, 3, 4, 4);
+		dbc.deleteUniversity("BEMIDJI");
+		int res = dbc.addUniversity("BEMIDJI","x","x","x",15000, 55, 485, 521, 21658, 65, 11500, 65, 75, 4, 4, 3);
 		int exp = 1;
-		assertEquals("BEMIDJI STATE HAS BEEN ADDED", exp, res);
+		assertEquals("BEMIDJI HAS BEEN ADDED", exp, res);
+		dbc.deleteUniversity("BEMIDJI");
 	}
+	
+	@Test
+	public void testAddUniversity_AddedDouble(){
+		dbc.addUniversity("BSU","x","x","x",15000, 55, 485, 521, 21658, 65, 11500, 65, 75, 4, 4, 3);
+		int res = dbc.addUniversity("BEMIDJI","x","x","x",15000, 55, 485, 521, 21658, 65, 11500, 65, 75, 4, 4, 3);
+		int exp = -1;
+		assertEquals("Tried to Add BSU twice, -1", exp, res);
+		dbc.deleteUniversity("BSU");
+	}
+	
 
 	/**
 	 * Test method for {@link Project.DatabaseController#addUniversityEmphasis(java.lang.String, java.lang.String)}.
 	 */
 	@Test
-	public void testAddUniversityEmphasis() {
-		fail("Not yet implemented");
+	public void testAddUniversityEmphasis(){
+		dbc.addUniversity("BEMIDJI","x","x","x",15000, 55, 485, 521, 21658, 65, 11500, 65, 75, 4, 4, 3);
+		int pass = dbc.addUniversityEmphasis("DEMO UNIVERSITY", "BIOLOGY");
+		boolean b = false;
+		if(pass != -1){
+			b = true;
+		}
+		assertTrue("dbc is NOT -1",b);
 	}
 
 	/**
@@ -51,7 +69,8 @@ public class DatabaseControllerTest {
 	 */
 	@Test
 	public void testEditUniversity() {
-		fail("Not yet implemented");
+		int passed = dbc.editUniversity("BEMIDJI","EDIT","EDIT","EDIT",15000, 55, 485, 521, 21658, 65, 11500, 65, 75, 4, 4, 3);
+		assertTrue("Edit Successfull: Passed is not -1", passed != -1);
 	}
 
 	/**
@@ -59,7 +78,10 @@ public class DatabaseControllerTest {
 	 */
 	@Test
 	public void testAddSchool() {
-		fail("Not yet implemented");
+		User user = new User("John","User","juser","user",'u','Y');
+		int res = dbc.addSchool("juser", "BEMIDJI");
+		assertTrue("BEMIDJI added to juser's list of schools: result != -1", res!=-1);
+		dbc.removeSchool("juser", "BEMIDJI");
 	}
 
 	/**
@@ -67,15 +89,9 @@ public class DatabaseControllerTest {
 	 */
 	@Test
 	public void testDeactivateUser() {
-		fail("Not yet implemented");
-	}
-
-	/**
-	 * Test method for {@link Project.DatabaseController#getUsers()}.
-	 */
-	@Test
-	public void testGetUsers() {
-		fail("Not yet implemented");
+		int res = dbc.deactivateUser("juser");
+		assertTrue("juser is now deactivated: res != -1", res != -1);
+		
 	}
 
 	/**
@@ -83,7 +99,9 @@ public class DatabaseControllerTest {
 	 */
 	@Test
 	public void testGetSpecificUser() {
-		fail("Not yet implemented");
+		Account account = dbc.getSpecificUser("juser");
+		String res = account.getUsername();
+		assertEquals("juser",res);
 	}
 
 	/**

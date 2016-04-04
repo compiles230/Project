@@ -39,7 +39,7 @@ public class CMCBasicDriver {
 		System.out.println("\n\n******************************* USE CASE 11: ADD SCHOOL (DEMO UNIVERSITY,x,x,x,1,1.1,1.2,1.3,1.4,1.5,1,1.6,1.7,1,1,1) *******************************\n\n");
 		adminUI.createSchool("DEMO UNIVERSITY","x","x","x",1,1.1,1.2,1.3,1.4,1.5,1,1.6,1.7,1,1,1);
 		System.out.println(dbc.deleteUniversity("BEMIDJI"));
-		System.out.println(adminUI.createSchool("BEMIDJI","x","x","x",1,1.1,1.2,1.3,1.4,1.5,1,1.6,1.7,1,1,1));
+		dbc.addUniversity("BEMIDJI","x","x","x",15000, 55, 485, 521, 21658, 65, 11500, 65, 75, 4, 4, 3);
 		adminUI.viewSchool("DEMO UNIVERSITY");
 		
 		adminUI.editUniversity("DEMO UNIVERSITY","EDIT","EDIT","EDIT",1,1.1,1.2,1.3,1.4,1.5,1,1.6,1.7,1,1,1);

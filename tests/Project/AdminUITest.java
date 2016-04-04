@@ -21,7 +21,7 @@ public class AdminUITest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		db = new UniversityDBLibrary("andyetitco","andyetico","ehk3");
+		db = new UniversityDBLibrary("andyetitco","andyetitco","ehk3");
 		dbc = new DatabaseController(db);
 		ac = new AccountController(dbc);
 		sh = new SchoolHome(dbc);
@@ -63,9 +63,9 @@ public class AdminUITest {
 
 	@Test
 	public void testCreateSchool() {
-		String res = au.createSchool("AVENGERS2","x","x","x",1,1.1,1.2,1.3,1.4,1.5,1,1.6,1.7,1,1,1);
-		String exp = "AVENGERS2 has been added";
-		System.out.println(au.viewSchool("AVENGERS"));
+		String res = au.createSchool("SJU","x","x","x",1,1.1,1.2,1.3,1.4,1.5,1,1.6,1.7,1,1,1);
+		String exp = "SJU has been added";
+		System.out.println(au.viewSchool("SJU"));
 		assertEquals(exp,res);
 	}
 
