@@ -2,6 +2,7 @@
  * AdminUI.java
  */
 package Project;
+import java.util.ArrayList;
 
 /**
  * The User Interface for Administrators of CMC
@@ -166,18 +167,21 @@ public class AdminUI {
 	 * @param academicScale
 	 * @param socialScale
 	 * @param qualityOfLifeScale
-	 * @param emphases
 	 */
-	public void createSchool(String schoolname, String state, String location,
+	public String createSchool(String schoolname, String state, String location,
 			String control, int numberOfStudents, double percentFemale,
 							double SATVerbal, double SATMath, double expenses,
 							double percentFinancialAid, int numOfApplicants,
 							double percentAdmitted, double percentEnrolled,
-							int academicScale, int socialScale, int qualityOfLifeScale,
-							String emphases){
-		sch.addUniversity(schoolname, state, location, control, numberOfStudents, percentFemale,
+							int academicScale, int socialScale, int qualityOfLifeScale){
+		int passed = sch.addUniversity(schoolname, state, location, control, numberOfStudents, percentFemale,
 						SATVerbal, SATMath, expenses, percentFinancialAid, numOfApplicants, percentAdmitted,
 						percentEnrolled, academicScale, socialScale, qualityOfLifeScale);
+		if (passed == -1){
+			return "ERROR";
+		}
+		else
+			return schoolname + " has been added";
 		//
 	}
 	
@@ -211,8 +215,8 @@ public class AdminUI {
 	 * Prints the information of the given school
 	 * @param schoolname name of the school to be viewed.
 	 */
-	public void viewSchool(String schoolname){
-		sch.viewSchool(schoolname);
+	public ArrayList<String> viewSchool(String schoolname){
+		return sch.viewSchool(schoolname);
 	
 	}
 	
@@ -222,33 +226,5 @@ public class AdminUI {
 	public void viewAllSchools(){
 		sch.viewAllSchools();
 	}
-	
-	//**** INCOMPLETE *****
-	public boolean confirmDeactivateUser(String confirm){
-		if (confirm.equals("y")){
-			return true;
-		}
-		else
-			return false;
-
-	}
-	
-	public boolean confirmCancelEditUni(String confirm){
-		if (confirm.equals("y")){
-			return true;
-		}
-		else
-			return false;
-		
-	}
-	public boolean confirmCancelEditUser(String confirm){
-		if (confirm.equals("y")){
-			return true;
-		}
-		else
-			return false;
-		
-	}
-	
 	
 }

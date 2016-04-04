@@ -33,7 +33,9 @@ public class DatabaseControllerTest {
 	 */
 	@Test
 	public void testAddUniversity() {
-		fail("Not yet implemented");
+		int res = dbc.addUniversity("BEMIDJI STATE", "MN", "URBAN", "STATE", 5000, 53, 600, 600, 12000, 50, 1000, 100, 80, 3, 4, 4);
+		int exp = 1;
+		assertEquals("BEMIDJI STATE HAS BEEN ADDED", exp, res);
 	}
 
 	/**

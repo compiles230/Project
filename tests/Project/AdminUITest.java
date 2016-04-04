@@ -1,6 +1,7 @@
 package Project;
 
 import static org.junit.Assert.*;
+import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -32,13 +33,13 @@ public class AdminUITest {
 
 	@Test
 	public void testEditUniversity() {
-		fail("Not yet implemented");
+		au.editUniversity("DEMO UNIVERSITY","x","x","x",1,1.1,1.2,1.3,1.4,1.5,1,1.6,1.7,1,1,1);
+		au.editUniversity("DEMO UNIVERSITY","EDIT","EDIT","EDIT",1,1.1,1.2,1.3,1.4,1.5,1,1.6,1.7,1,1,1);
+		String exp = "[DEMO UNIVERSITY, EDIT, EDIT, EDIT, 1, 1, 1, 1, 1, 2, 1, 2, 2, 1, 1, 1]";
+		ArrayList<String> result = au.viewSchool("DEMO UNIVERSITY");
+		assertEquals("DEMO UNIVERSITY HAS BEEN NOW CONTAINS 3 EDIT'S ", exp, result.toString() );
 	}
 
-	@Test
-	public void testAddUniversity() {
-		fail("Not yet implemented");
-	}
 
 	@Test
 	public void testViewUsers() {
@@ -62,7 +63,10 @@ public class AdminUITest {
 
 	@Test
 	public void testCreateSchool() {
-		fail("Not yet implemented");
+		String res = au.createSchool("AVENGERS2","x","x","x",1,1.1,1.2,1.3,1.4,1.5,1,1.6,1.7,1,1,1);
+		String exp = "AVENGERS2 has been added";
+		System.out.println(au.viewSchool("AVENGERS"));
+		assertEquals(exp,res);
 	}
 
 	@Test

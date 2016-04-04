@@ -53,7 +53,7 @@ public class UserControllerTest {
 		String firstName = "Kenz";
 		String lastName = "Flick";
 		String password = "helloWorld";
-		UserController.editProfile(user,username, firstName, lastName, password);
+		userCont.editProfile(user,username, firstName, lastName, password);
 		System.out.println("");
 		assertEquals("First name should now be Kenz", firstName, user.getFirstName());
 		assertEquals("Last name should now be Flick", lastName, user.getLastName());
@@ -61,7 +61,7 @@ public class UserControllerTest {
 		firstName = "Kenzie";
 		lastName = "Flickinger";
 		password = "password";
-		UserController.editProfile(user, username, firstName, lastName, password);
+		userCont.editProfile(user, username, firstName, lastName, password);
 	}
 	
 }

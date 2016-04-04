@@ -66,6 +66,8 @@ public class DatabaseController {
 		int passed = database.university_addUniversity(school, state, location,control, numberOfStudents,
 				percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, numberOfApplicants,
 				percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
+		if (passed != -1)
+			passed = 1;
 		return passed;
     }
 	
@@ -289,12 +291,13 @@ public class DatabaseController {
 			if (found != true){
 				System.out.println("School not found");
 			}
+			
 			return schoolList;
 	 }
 	 
 	public ArrayList<String> saveArray(String[][] array, int row) {
 		ArrayList<String>schools = new ArrayList<String>();
-		    for(int i = 1; i < array[row].length; i++)
+		    for(int i = 0; i < array[row].length; i++)
 		        schools.add(array[row][i]);
 		    	
 		   return schools;
